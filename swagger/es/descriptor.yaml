@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: API de Eustat
-  description: Documentación interactiva para la API de Eustat
+  description: La API de [Eustat](https://www.eustat.eus/indice.html) permite obtener los datos estadísticos oficiales de la C.A de Euskadi.
   version: 1.0.0
 
 servers:
