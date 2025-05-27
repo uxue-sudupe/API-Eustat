@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Eustaten APIa (aplikazioak programatzeko interfazea)
-  description: Eustaten APIaren dokumentazio interaktiboa
+  title: Eustaten APIa
+  description: Eustaten APIak Euskal Autonomia Erkidegoko datu estatistiko ofizialak lortzeko aukera ematen du.
   version: 1.0.0
 
 servers:
