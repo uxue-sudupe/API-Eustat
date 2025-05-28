@@ -1,0 +1,184 @@
+---
+title: "Tutorial API Eustat"
+output: html_document
+---
+
+**Introducción**
+
+Este tutorial pretende servir de ayuda para las personas que quieran realizar consultas y obtener datos de la web de Eustat vía API. Se muestran ejemplos reales de uso del servicio web de datos abiertos y el código R necesario para ejecutar las acciones. Se utilizan varios paquetes de R para recibir información de la web, leer y tratar datos en formato *json*.
+
+```{r setup, message=FALSE, warning=FALSE}
+
+install.packages(c("httr", "jsonlite", "tidyr", "dplyr", "rjstat", "ggplot2"))
+library(httr)
+library(jsonlite)
+library(tidyr)
+library(dplyr)
+library(rjstat)
+library(ggplot2)
+
+```
+
+**Obtener el catálogo de datos de Eustat**
+
+Los datos a los que se puede acceder vía API son los que se encuentran en el [banco de datos de Eustat](https://www.eustat.eus/banku/indexArbol.html).
+
+Es posible acceder al listado completo de los conjuntos de datos a través de su servicio web. En este ejemplo se presentan solo los primeros registros del catálogo.
+
+```{r}
+
+DB <- GET("https://www.eustat.eus/bankupx/api/v1/es/DB")
+Catálogo <- fromJSON(rawToChar(DB$content))
+head(Catálogo)
+
+```
+
+**Idiomas**
+
+Se pueden obtener los mismos datos en euskera o en inglés. Solo hay que modificar la dirección de la *url* en la parte que contiene el idioma, `www.eustat.eus/bankupx/api/v1/[idioma]/DB`, y reemplazar *es* por *eu* o *en*. Por ejemplo, en euskera sería así:
+
+```{r}
+
+DB <- GET("https://www.eustat.eus/bankupx/api/v1/eu/DB")
+Katalogoa <- fromJSON(rawToChar(DB$content))
+head(Katalogoa)
+
+```
+
+**Busqueda de un conjunto de datos de interés**
+
+Podemos hacer búsquedas en este índice o tabla de contenidos para identificar los datos que nos interesan. Podemos, por ejemplo, buscar aquellos conjuntos de datos que hagan referencia al paro.
+
+```{r}
+id_paro <- Catálogo %>% filter(grepl("paro", text))
+id_paro
+```
+
+El campo "id" contiene la dirección en la que se encuentran los datos dentro del banco de datos de Eustat. "type" indica el formato en el que se encuentran los datos, siendo "t" una tabla, y "text" es la descripción del conjunto de datos. El campo "updated" contiene la fecha de la última publicación del conjunto de datos. ***Atención! la fecha de última actualización no está bien recogida***
+
+**Ordenar el Índice o tabla de contenidos**
+
+Se puede ordenar la tabla de contenidos por la fecha de última publicación, para saber cuáles son los datos más recientes en la web de Eustat. ***Atención! la fecha de última actualización no está bien recogida***
+
+```{r}
+
+Catálogo_ordenado <- Catálogo %>% arrange(desc(updated))
+head(Catálogo_ordenado)
+```
+
+**Obtener los metadatos de una tabla**
+
+El banco de datos público de Eustat está estructurado en los metadatos por un lado y los datos por otro. Los metadatos están configurados en forma de árbol jerárquico, y contienen información sobre cuáles son las dimensiones disponibles para los datos de cada tabla y los valores que toman (como código o como texto descriptivo).
+
+Para acceder a los metadatos de una tabla concreta, debemos añadirle a la *url* del banco de datos el "id" de la tabla de interés. La dirección tendrá este aspecto: `www.eustat.eus/bankupx/api/v1/[idioma]/DB/[id]`
+
+Accedemos, por ejemplo, a los metadatos de la tabla que contiene los datos de población de la C.A. de Euskadi por ámbitos territoriales, grupos de edad y sexo, que se encuentra en esta dirección:
+
+<https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep06b.px>
+
+```{r}
+
+metadatos<- GET("https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep06b.px")
+metadatos_población <- fromJSON(rawToChar(metadatos$content))
+metadatos_población
+
+```
+
+Los metadatos contienen el título de la tabla, junto con los códigos y literales de las variables y los valores. Podemos obtener una tabla de correspondencias de los códigos y literales de los valores.
+
+```{r}
+variables <- metadatos_población$variables
+
+df_variables <- variables %>%
+  mutate(
+    values = lapply(values, unlist),
+    valueTexts = lapply(valueTexts, unlist)
+  ) %>%
+  unnest(c(values, valueTexts))
+
+df_variables
+```
+
+**Obtener los datos de una tabla**
+
+Para disponer de los datos de las tablas, debemos realizar una consulta a la misma dirección del banco de datos utilizada para obtener los metadatos. Usamos el paquete *rjstat* para trabajar con los datos que vamos a obtener en formato *json-stat*. En este ejemplo, consultamos todos los datos de la tabla de población por grupos de edad y sexo.
+
+```{r}
+url <- "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep06b.px"
+consulta <- '{"query":[]}'
+
+d.tmp <- POST(url , body = consulta, encode = "json", verbose())
+tabla <- fromJSONstat(content(d.tmp, "text"), naming = "label", use_factors = FALSE, silent = FALSE)
+Población <- tabla[[1]]
+head(Población)
+```
+
+**Obtener los datos de una tabla, con códigos**
+
+Es posible que nos interese disponer de estos datos con los códigos de las variables, y no con el texto o la descripción. En ese caso, solicitamos que los nombres se capturen como código (naming="id") y no como texto (naming="label").
+
+```{r}
+tabla <- fromJSONstat(content(d.tmp, "text"), naming = "id", use_factors = FALSE, silent = FALSE)
+Población_codigo <- tabla[[1]]
+head(Población_codigo)
+```
+
+En la consulta que hemos realizado hemos pedido todos los datos disponibles, sin seleccionar ningún territorio, grupo de edad, sexo o periodo. Podría pasar que la petición fuera excesiva y se alcance el límite de datos que se pueden recopilar a partir del servicio web.
+
+**Obtener los datos de una tabla, con una consulta de datos**
+
+Cuando nos interesa disponer de los datos de una selección de valores, y no todo el contenido de las tablas, debemos realizar una consulta seleccionando las variables y valores de interés, en formato json. Esta selección se hace a partir de los códigos de los valores, y no de su nombre. La forma más facil de definir la consulta es desde la propia web de Eustat, desde la interfaz de cada una de las tablas, donde podremos seleccionar los datos que nos interesan facilmente.
+
+Por ejemplo, si queremos datos del PIB trimestral por territorio histórico, iríamos a la página en la que se seleccionan las variables para esta tabla del banco de datos:
+
+<https://www.eustat.eus/bankupx/pxweb/es/DB/-/PX_170115_ccet_cet04tb.px>
+
+Y hacemos la selección que nos interesa: seleccionamos los datos del PIB trimestral en forma de tasa interanual, con datos corregidos de efectos estacionales y de calendario, y medido a precios corrientes en miles de euros.
+
+<img src="https://raw.githubusercontent.com/uxue-sudupe/tutorial-api-eustat/main/imagen/PIB_seleccion.png" alt="Selección" width="600"/>
+
+Tras hacer la selección pulsamos "Continuar" y "Disponer de esta tabla en su aplicación". En este apartado aparecerán tanto la url a la que hay que hacer la petición como la consulta json, que será la que incluiremos en nuestro código.
+
+<img src="https://raw.githubusercontent.com/uxue-sudupe/tutorial-api-eustat/main/imagen/PIB_consulta.png" alt="Consulta json" width="600"/>
+
+```{r}
+url <- "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_170115_ccet_cet04tb.px"
+consulta <- '{"query": [{"code": "tipo de dato","selection": {"filter": "item","values": ["20"]}},
+            {"code": "tipo de serie","selection": {"filter": "item","values": ["20"]}},
+            {"code": "tipo de medida", "selection": {"filter": "item","values": ["20"]}}],
+            "response": {"format": "json-stat"}} '
+
+d.tmp <- POST(url , body = consulta, encode = "json", verbose())
+tabla <- fromJSONstat(content(d.tmp, "text"), naming = "label", use_factors = FALSE, silent = FALSE)
+PIB <- tabla[[1]]
+head(PIB)
+```
+
+**Visualización de los datos**
+
+Ahora podemos usar la información obtenida para su tratamiento posterior, para hacer gráficos y tablas, o cualquier otro uso.
+
+```{r}
+ggplot(PIB, aes(x = periodo, y = value, color = `territorio histórico`, group = `territorio histórico`)) +
+  geom_line(size = 1) +
+  theme_minimal() +
+  theme(
+    axis.title = element_text(size = 15),
+    axis.text = element_text(size = 12),
+    legend.title = element_blank(),
+    legend.text = element_text(size = 12) ) +
+  labs(
+    title = "Tasas de variación del PIB",
+    subtitle = "Corregido de efectos estacionales y de calendario",
+    x = "Periodo",
+    y = "Tasa interanual")
+```
+
+**Guardar los datos**
+
+Finalmente guardamos los datos obtenidos en formato csv, o cualquier otro formato permitido.
+
+```{r}
+
+write.csv(PIB, file='PIB_trimestral_TH.csv')
+```
