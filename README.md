@@ -9,11 +9,11 @@
 APIaren esplorazio eta proba interaktiboa errazteko, [**Swagger UI** bisore bat](https://uxue-sudupe.github.io/API-Eustat/swagger/eu/) gehitu da. Nabigatzailetik bertatik dokumentazioa kontsultatu eta eskaerak egin daitezke.
 
 ### 3. Erabilera-adibideak
-Eustaten API nola erabili ikasteko hiru tutorial praktiko prestatu dira. **R** **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute.
+Eustaten APIa nola erabili erakusteko hiru tutorial praktiko prestatu dira. **R**, **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute.
 
 1. 📘 [R-n egindako tutoriala (RMarkdown)](Tutorial_API_Eustat_R.Rmd)  
 2. 📙 [Python-en egindako tutoriala (Jupyter Notebook)](Tutorial_API_Eustat_Python.ipynb)
-3. 📊 Javascript-en adibide bat, API dei bat eginez nola sortu daitekeen Highcharts grafiko simple bat
+3. 📊 Javascript-en adibide bat, API dei bat eginez Highcharts grafiko simple bat nola sortzen den erakusteko
 
   ---
   
@@ -33,4 +33,4 @@ Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de
 
 1. 📘 [Tutorial en R (RMarkdown)](Tutorial_API_Eustat_R.Rmd)  
 2. 📙 [Tutorial en R (Jupyter Notebook)](Tutorial_API_Eustat_R.ipynb)  
-3. 📊 Ejemplo de código en Javascript para realizar una llamada a la API y generar un gráfico simple en Highcharts.
+3. 📊 Ejemplo de código en Javascript para realizar una llamada a la API y generar un gráfico simple en Highcharts
