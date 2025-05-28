@@ -227,7 +227,7 @@ Por ejemplo:
     }
   ],
   "response": {
-    "format": "json-stat"
+    "format": "json-stat"     // ← formato de salida (json-stat por defecto)
   }
 }
 ```
@@ -254,15 +254,13 @@ Para leer los archivos JSON de salida de las solicitudes de datos descritas en e
 
 ### Formatos de salida
 
-La API puede devolver resultados en 6 formatos:
+La API puede devolver resultados en 6 formatos diferentes:
 
-• JSON-stat, versión 2 (predeterminado)
-• 3 formatos diferentes de CSV:
-    - CSV:
-    - CSV2: formato compatible con pivotes
-    - CSV3: como CSV2 con códigos en lugar de texto
-• XLSX
-• JSON-stat v. 1.2
-
+- **JSON-stat**, versión 2 *(formato predeterminado)*
+- **CSV** (formato plano)
+- **CSV2** (formato compatible con tablas dinámicas)
+- **CSV3** (igual que CSV2, pero con códigos en lugar de texto)
+- **XLSX** (Excel)
+- **JSON-stat**, versión 1.2
 
 Para un tratamiento flexible de los datos, recomendamos JSON-stat, que es la salida por defecto.
