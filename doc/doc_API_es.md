@@ -244,11 +244,11 @@ A continuación, se muestran los pasos necesarios para configurar la consulta PO
 
 Queremos seleccionar algunos valores concretos de la tabla "Producto interior bruto (PIB) de la C.A. de Euskadi (oferta) por territorio histórico, rama de actividad (A-38), tipo de dato y de medida. 1995 - 2023" que se encuentra en la dirección https://es.eustat.eus/bankupx/pxweb/es/DB/-/PX_170112_cpib_pib_a_01.px.
 
-![Selección de variables y valores](../img/PIB_seleccion.png)
+![Selección de variables y valores](../img/PIB_seleccion.PNG)
 
 Haz clic en el apartado **“Disponer de esta tabla en su aplicación”**. Esto mostrará la URL y la consulta necesarias para obtener los datos mediante la API.
 
-![Consulta JSON generada](../img/PIB_consulta.png)
+![Consulta JSON generada](../img/PIB_consulta.PNG)
 
 La interfaz ayuda al usuario a generar y editar el código que se utilizará en la API. Está pensada para generar el código de las consultas y no para su uso en producción.
 
