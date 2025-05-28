@@ -65,111 +65,111 @@ Los metadatos constan de un título ("title") y una lista de variables para la t
 
 Ejemplo:
 
-👉[https://www.eustat.eus/bankupx/api/v1/es/DB/PX_132680_cetr_etr04t.px]
+👉(https://www.eustat.eus/bankupx/api/v1/es/DB/PX_050403_cpra_tab_a_25.px)
 
 Aspecto de la respuesta:
 
 ```json
-{
-  "title": "Población de 16 y más años de la C.A. de Euskadi por indicadores de bienestar personal según situación económica subjetiva, salud percibida y relaciones familiares (porcentaje y media). 2014 - 2024",
+ "title": "Media de horas semanales trabajadas por la población ocupada de 16 y más años de la C.A. de Euskadi por, territorio histórico, sexo, sector económico y trimestre (horas). 2015 - 2025",
   "variables": [
     {
-      "code": "ECV",
-      "text": "ECV",
+      "code": "territorio histórico",
+      "text": "territorio histórico",
       "values": [
-        "100",
-        "110",
-        "120",
-        "130",
-        "140",
-        "150",
-        "160",
-        "170",
-        "180",
-        "190",
-        "200",
-        "210",
-        "220",
-        "230",
-        "240"
+        "_T",
+        "01",
+        "48",
+        "20"
       ],
       "valueTexts": [
-        "TOTAL",
-        "1.Situación económica subjetiva",
-        "1.1.Mala",
-        "1.2.Normal",
-        "1.3.Buena",
-        "2.Salud percibida",
-        "2.1.Muy buena",
-        "2.2.Buena",
-        "2.3.Regular",
-        "2.4.Mala o muy mala",
-        "3.Relaciones familiares",
-        "3.1.Intensas",
-        "3.2.Frecuentes",
-        "3.3.Esporádicas",
-        "3.4.Ninguna"
+        "C.A. de Euskadi",
+        "Araba/Álava",
+        "Bizkaia",
+        "Gipuzkoa"
       ]
     },
     {
-      "code": "indicadores de bienestar personal (1)",
-      "text": "indicadores de bienestar personal (1)",
+      "code": "sexo",
+      "text": "sexo",
       "values": [
-        "100",
-        "110",
-        "120",
-        "130",
-        "140",
-        "150",
-        "160",
-        "170",
-        "180"
+        "_T",
+        "1",
+        "2"
       ],
       "valueTexts": [
-        "Satisfacción con la vida",
-        "Valor de la vida",
-        "Satisfacción con el tiempo de ocio",
-        "Satisfacción con la vivienda y el entorno",
-        "Satisfacción con la economía doméstica",
-        "Estado de ánimo",
-        "Relaciones personales",
-        "Confianza en las personas",
-        "Confianza en los poderes públicos"
+        "Total",
+        "Hombre",
+        "Mujer"
       ]
     },
     {
-      "code": "valores y media",
-      "text": "valores y media",
+      "code": "sector económico",
+      "text": "sector económico",
+      "values": [
+        "_T",
+        "01",
+        "02",
+        "03",
+        "04"
+      ],
+      "valueTexts": [
+        "Total",
+        "Agricultura, ganadería, silvicultura y pesca",
+        "Industrias ",
+        "Construcción",
+        "Servicios"
+      ]
+    },
+    {
+      "code": "trimestre",
+      "text": "trimestre",
       "values": [
         "10",
         "20",
         "30",
-        "40"
+        "40",
+        "50"
       ],
       "valueTexts": [
-        "Bajo",
-        "Medio",
-        "Alto",
-        "MEDIA"
+        "Promedio anual",
+        "Trimestre 1",
+        "Trimestre 2",
+        "Trimestre 3",
+        "Trimestre 4"
       ]
     },
     {
       "code": "periodo",
       "text": "periodo",
       "values": [
-        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018",
         "2019",
-        "2024"
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
       ],
       "valueTexts": [
-        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018",
         "2019",
-        "2024"
+        "2020",
+        "2021",
+        "2022",
+        "2023",
+        "2024",
+        "2025"
       ],
       "time": true
     }
   ]
-}
 ```
 
  Los objetos "variables" tienen cuatro atributos:
