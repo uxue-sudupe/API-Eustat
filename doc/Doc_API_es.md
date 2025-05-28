@@ -257,9 +257,12 @@ Para leer los archivos JSON de salida de las solicitudes de datos descritas en e
 La API puede devolver resultados en 6 formatos:
 
 • JSON-stat, versión 2 (predeterminado)
-• CSV2: formato compatible con pivotes
-• CSV3: como CSV2 con códigos en lugar de texto
+• 3 formatos diferentes de CSV:
+    - CSV:
+    - CSV2: formato compatible con pivotes
+    - CSV3: como CSV2 con códigos en lugar de texto
 • XLSX
 • JSON-stat v. 1.2
-• CSV
 
+
+Para un tratamiento flexible de los datos, recomendamos JSON-stat, que es la salida por defecto.
