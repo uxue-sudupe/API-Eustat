@@ -252,3 +252,14 @@ La interfaz ayuda al usuario a generar y editar el código que se utilizará en 
 
 Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/tutorial_R_es.Rmd), [**Python**](../code_examples/tutorial_Python_es.ipynb) y [**JavaScript**](../code_examples/tutorial_highcharts_es.md) para facilitar a los usuarios el uso de la API de Eustat.
 
+### Formatos de salida
+
+La API puede devolver resultados en 6 formatos:
+
+• JSON-stat, versión 2 (predeterminado)
+• CSV2: formato compatible con pivotes
+• CSV3: como CSV2 con códigos en lugar de texto
+• XLSX
+• JSON-stat v. 1.2
+• CSV
+
