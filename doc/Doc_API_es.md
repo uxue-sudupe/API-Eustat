@@ -47,7 +47,7 @@ El texto JSON que se muestra contiene los siguientes campos:
 
 | Campo     | Descripción                                                                                           |
 |-----------|-------------------------------------------------------------------------------------------------------|
-| `id`      | Código identificativo de la tabla                                                                     |
+| `id`      | Código identificador de la tabla                                                                      |
 | `type`    | `t` = Tabla                                                                                           |
 | `text`    | Título de la tabla (descripción del contenido + intervalo de tiempo)                                  |
 | `updated` | Fecha de última actualización de la tabla    
