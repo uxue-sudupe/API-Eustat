@@ -6,7 +6,7 @@
 
 ### 2. Swagger bisorea (Open API estandarrean)
 
-APIaren esplorazio eta proba interaktiboa errazteko, [**Swagger UI** bisore bat](swagger/eu/index.html) gehitu da. Nabigatzailetik bertatik dokumentazioa kontsultatu eta eskaerak egin daitezke.
+APIaren esplorazio eta proba interaktiboa errazteko, [**Swagger UI** bisore bat](https://uxue-sudupe.github.io/API-Eustat/swagger/eu/) gehitu da. Nabigatzailetik bertatik dokumentazioa kontsultatu eta eskaerak egin daitezke.
 
 ### 3. Erabilera-adibideak
 Eustaten API nola erabili ikasteko hiru tutorial praktiko prestatu dira. **R** **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute.
@@ -24,7 +24,7 @@ La 📘 [Guía técnica de la API de Eustat](doc/doc_API_es.md) identifica los p
 
 ### 2. Visor Swagger (estandar Open API)
 
-Para facilitar la exploración y prueba interactiva del API se ha añadido un visor [**Swagger UI**](swagger/es/index.html). Desde el mismo navegador se puede consultar la documentación y realizar las solicitudes.
+Para facilitar la exploración y prueba interactiva del API se ha añadido un visor [**Swagger UI**](https://uxue-sudupe.github.io/API-Eustat/swagger/es/). Desde el mismo navegador se puede consultar la documentación y realizar las solicitudes.
 
 ### 3. Ejemplos de uso
 
