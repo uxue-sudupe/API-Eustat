@@ -1,64 +1,34 @@
 # API-Eustat
-Eustaten APIaren dokumentazioa eta tutorialak / Documentación y tutoriales de la API de Eustat      
+Eustaten APIaren dokumentazioa eta tutorialak     
 
-###  📘 **1. Eustaten APIaren gida**
+###  📘 **1. Eustaten APIaren gida teknikoa**
 [Eustaten APIaren gida teknikoak](doc/doc_API_eu.md) APIaren sarbide-puntuak (endpointak) identifikatzen ditu eta datuetara sartzeko modua deskribatzen du.
 
 ###  🔗 2. Swagger bisorea (Open API estandarrean)
 
 APIaren esplorazio eta proba interaktiboa errazteko, [**Swagger UI** bisore bat](swagger/eu/index.html) gehitu da. Nabigatzailetik bertatik dokumentazioa kontsultatu eta eskaerak egin daitezke.
 
-###  📚 APIaren erabilerarako tutorialak
-
-Errepositorio honek Eustaten APIaren erabilera ikasteko hiru tutorial praktiko biltzen ditu. **R** **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute.
-
-### 🧪 Erabilera-adibideak
+### 🧪 3. Erabilera-adibideak
+Eustaten API nola erabili ikasteko hiru tutorial praktiko prestatu dira. **R** **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute.
 
 1. 📘 [R-n egindako tutoriala (RMarkdown)](Tutorial_API_Eustat_R.Rmd)  
 2. 📙 [Python-en egindako tutoriala (Jupyter Notebook)](Tutorial_API_Eustat_Python.ipynb)
 3. 📊 Javascript-en adibide bat, API dei bat eginez nola sortu daitekeen Higcharts grafiko simple bat
 
   ---
+Documentación y tutoriales de la API de Eustat  
 
+###  📘 **1. Guía técnica de la API de Eustat**
 
+La [Guía técnica de la API de Eustat](doc/doc_API_es.md) identifica los puntos de acceso a la API (endpoints) y describe la forma de acceder a los datos.
 
-# 📊 Documentación en castellano
+###  🔗 2. Visor Swagger (estandar Open API)
 
-Este repositorio contiene la documentación técnica de la API de Eustat conforme al estándar **OpenAPI 3.0**, lo que facilita su integración, comprensión y mantenimiento.
+Para facilitar la exploración y prueba interactiva del API se ha añadido un visor [**Swagger UI**](swagger/es/index.html). Desde el mismo navegador se puede consultar la documentación y realizar las solicitudes.
 
-🔗 **Acceso directo a la documentación:**  
-[https://uxue-sudupe.github.io/openapi-eustat](https://uxue-sudupe.github.io/openapi-eustat)
+### 🧪 3. Ejemplos de uso
 
----
-
-## 📄 Especificación OpenAPI
-
-La definición de la API se encuentra en el archivo [`descriptor.yaml`](./descriptor.yaml), estructurada según el estándar **OpenAPI 3.0**.
-
-Esta especificación incluye:
-
-- ✅ Endpoints disponibles  
-- 🔁 Métodos HTTP permitidos  
-- 📥 Parámetros de entrada y salida  
-- 🧾 Códigos de respuesta  
-- 🧪 Ejemplos de uso
-
----
-
-## 🧭 Visor Swagger UI
-
-Para facilitar la exploración y prueba de la API, se incluye un visor interactivo **Swagger UI**. Desde aquí puedes consultar la documentación y realizar peticiones directamente desde el navegador.
-
-🌐 **Accede al visor Swagger:**  
-[https://uxue-sudupe.github.io/openapi-eustat/open_api.html](https://uxue-sudupe.github.io/openapi-eustat/open_api.html)
-
----
-
-# 📚 Tutoriales de uso
-
-Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de la API de Eustat. Están disponibles en **R** y **Python** e incluyen ejemplos de consulta y tratamiento de datos.
-
-### ✅ Tutoriales disponibles
+Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de la API de Eustat. Están disponibles en **R**, **Python** y **JavaScript**e incluyen ejemplos de consulta y tratamiento de datos.
 
 1. 📘 [Tutorial en R (RMarkdown)](Tutorial_API_Eustat_R.Rmd)  
 2. 📗 [Tutorial en R (Jupyter Notebook)](Tutorial_API_Eustat_R.ipynb)  
