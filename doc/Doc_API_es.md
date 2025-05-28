@@ -2,6 +2,8 @@
 
 Eustat ofrece una API para consultas a las más de 2.000 tablas de su [Banco de Datos](https://www.eustat.eus/banku/indexArbol.html).
 
+El uso principal de la API es que el usuario puede obtener datos actualizados a tiempo real. Estos datos pueden mostrarse como una tabla o un gráfico en una página web o importarse a software como R, Excel, Power BI, SAS o Jupyter Notebooks para su posterior procesamiento.
+
 Esta API utiliza los métodos HTTP **POST** y **GET**:
 
 - `GET` se usa para obtener un listado de las tablas del banco de datos. También devuelve los metadatos, en el caso de consultar una tabla concreta.
