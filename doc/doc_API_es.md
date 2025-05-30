@@ -7,25 +7,25 @@ El objetivo principal de esta API es ofrecer acceso en tiempo real a los datos e
 - Visualizar los datos como tablas o gráficos en páginas web, en tiempo real.
 - Importar los datos a herramientas como R, Python, Jupyter Notebooks para su posterior procesamiento y análisis.
 
-Esta API utiliza los métodos http **POST** y **GET**:
+Esta API utiliza los métodos http `POST` y `GET`:
 
 - `GET` se usa para obtener un listado de las tablas del banco de datos. También devuelve los metadatos, en el caso de consultar una tabla concreta.
-- Para obtener datos, debes usar la función `POST` y formular una consulta en **JSON** (Notación de Objetos JavaScript). Puedes obtener la tabla completa o partes de ella.
+- Para obtener datos, debes usar la función `POST` y formular una consulta en JSON (Notación de Objetos JavaScript). Puedes obtener la tabla completa o partes de ella.
 
 A continuación se detalla cada uno de los puntos de acceso (endpoints) de la API.
 
 
 # 2. Listado de tablas del banco de datos
 
-Si usas la función GET sobre la url del banco de datos, se muestra el listado de todas las tablas en formato JSON. La dirección url del banco de datos tiene la siguiente estructura: 
+Si usas la función `GET` sobre la url del banco de datos, se muestra el listado de todas las tablas en formato JSON. La dirección url del banco de datos tiene la siguiente estructura: 
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB`
 
-El campo {lang} corresponde al idioma. Es obligatorio y puede tomar los siguientes valores: ES: español / EU: euskera / EN: inglés.
+El campo `{lang}` corresponde al idioma. Es obligatorio y puede tomar los siguientes valores: ES: español / EU: euskera / EN: inglés.
 
 Listado de tablas en español:
 
-👉 [https://www.eustat.eus/bankupx/api/v1/es/DB](https://www.eustat.eus/bankupx/api/v1/es/DB)
+👉 https://www.eustat.eus/bankupx/api/v1/es/DB
 
 Aspecto de la respuesta:
 
@@ -62,7 +62,7 @@ La función GET sobre la URL de una tabla devolverá los metadatos de la tabla e
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB/[id]`
 
-El campo {lang} corresponde al idioma, y el campo [id] corresponde al identificador de la tabla con los datos o metadatos de interés.
+El campo `{lang}` corresponde al idioma, y el campo `[id]` corresponde al identificador de la tabla con los datos o metadatos de interés.
 
 Los metadatos constan de un título ("title") y una lista de variables para la tabla.
 
@@ -241,7 +241,7 @@ Para realizar esta consulta es necesario conocer qué variables y valores contie
 
 `https://www.eustat.eus/bankupx/pxweb/{lang}/DB/-/{id}`
 
-A continuación, se muestran los pasos necesarios para configurar la consulta POST utilizando el asistente:
+A continuación, se muestran los pasos necesarios para configurar la consulta `POST` utilizando el asistente:
 
 ### Ejemplo de selección de variables y valores
 
@@ -255,11 +255,11 @@ Haz clic en el apartado **“Disponer de esta tabla en su aplicación”**. Esto
 
 La interfaz ayuda al usuario a generar y editar el código que se utilizará en la API. Está pensada para generar el código de las consultas y no para su uso en producción.
 
-Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/tutorial_R_es.Rmd), [**Python**](../code_examples/tutorial_Python_es.ipynb) y [**JavaScript**](../code_examples/tutorial_highcharts_es.md) para facilitar a los usuarios el uso de la API de Eustat.
+Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/es/tutorial_R_es.Rmd), [**Python**](../code_examples/es/tutorial_Python_es.ipynb) y [**JavaScript**](../code_examples/es/tutorial_highcharts_es.md) para facilitar a los usuarios el uso de la API de Eustat.
 
 ### Formatos de salida
 
-La API puede devolver resultados en 5 formatos diferentes:
+La API puede devolver los datos de las tablas en 5 formatos diferentes:
 
 - **JSON-stat**, versión 1.2 *(formato predeterminado)*
 - **CSV** (formato plano)
