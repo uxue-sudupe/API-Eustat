@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Eustaten APIa
-  description: Eustaten APIak sarbide zuzena eta automatizatua ematen du Euskal AEko datu estatistiko ofizialetara. Informazio egituratua kontsultatzeko, iragazteko eta deskargatzeko aukera ematen du, ondoren aztertu eta berrerabiltzeko.
+  description: Eustaten APIak sarbide zuzena eta automatizatua ematen du Euskal AEko datu estatistiko ofizialetara. Informazio egituratua kontsultatzeko, filtratzeko eta deskargatzeko aukera ematen du, ondoren aztertu eta berrerabiltzeko.
   version: 1.0.0
 
 servers:
