@@ -2,10 +2,10 @@
 
 Eustat ofrece una API para consultas a las más de 2.000 tablas de su [Banco de Datos](https://www.eustat.eus/banku/indexArbol.html).
 
-El objetivo principal de esta API es ofrecer acceso en tiempo real a los datos estadísticos, facilitando su integración en distintos entornos de análisis o visualización. Los datos obtenidos pueden:
+El objetivo principal de esta API es ofrecer acceso en tiempo real a los datos estadísticos para su reutilización. La API facilita la integración de los datos en distintos entornos de análisis o visualización. La reutilización puede tener distintos usos, por ejemplo:
 
-- Visualizarse como tablas o gráficos en páginas web.
-- Importarse a herramientas como R, Python o Jupyter Notebooks para su posterior procesamiento y análisis.
+- Visualizar los datos como tablas o gráficos en páginas web, en tiempo real.
+- Importar los datos a herramientas como R, Python, Jupyter Notebooks para su posterior procesamiento y análisis.
 
 Esta API utiliza los métodos http **POST** y **GET**:
 
