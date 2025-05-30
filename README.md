@@ -31,8 +31,8 @@ los puntos de entrada de la API (endpoints), parámetros, respuestas y explicaci
 
 ### 3. Ejemplos de uso
 
-Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de la API de Eustat. Están disponibles en **R**, **Python** y **JavaScript**e incluyen ejemplos de consulta y tratamiento de datos.
+Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de la API de Eustat. Están disponibles en **R**, **Python** y **JavaScript** e incluyen ejemplos de consulta y tratamiento de datos.
 
-1. 📘 [Tutorial en R (RMarkdown)](Tutorial_API_Eustat_R.Rmd)  
-2. 📙 [Tutorial en R (Jupyter Notebook)](Tutorial_API_Eustat_R.ipynb)  
-3. 📊 Ejemplo de código en Javascript para realizar una llamada a la API y generar un gráfico simple en Highcharts
+1. 📘 [Tutorial en R (RMarkdown)](/code_examples/es/tutorial_R_es.Rmd)  
+2. 📙 [Tutorial en R (Jupyter Notebook)](/code_examples/es/tutorial_Python_es.ipynb)  
+3. 📊 Ejemplo de código en [**JavaScript**](/code_examples/es/tutorial_highcharts_es.md) para realizar una llamada a la API y generar un gráfico simple en Highcharts
