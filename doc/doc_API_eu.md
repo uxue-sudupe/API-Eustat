@@ -7,17 +7,17 @@ APIaren helburu nagusia denbora errealean datu estatistikoetarako sarbidea eskai
 - Web orrietan taula edo grafiko gisa bistaratu, denbora errealean.
 - R, Python edo Jupyter Notebooks bezalako tresnetara inportatu, ondoren prozesatu eta aztertzeko.
 
-API honek http **POST** eta **GET** metodoak erabiltzen ditu:
+API honek http `POST` eta `GET` metodoak erabiltzen ditu:
 
-- Datu-bankuko taulen zerrenda bat lortzeko erabiltzen da GET. Metadatuak ere itzultzen ditu, taula zehatz bat kontsultatuz gero.
-- Datuak lortzeko, "POST" funtzioa erabili eta kontsulta bat egin behar da **JSON** (JavaScript Objektuen Notazioa) formatuan. Taula osoa edo haren zatiak eskura ditzakezu.
+- Datu-bankuko taulen zerrenda bat lortzeko erabiltzen da `GET`. Metadatuak ere itzultzen ditu, taula zehatz bat kontsultatuz gero.
+- Datuak lortzeko, "`POST` funtzioa erabili eta kontsulta bat egin behar da JSON (JavaScript Objektuen Notazioa) formatuan. Taula osoa edo haren zatiak eskura ditzakezu.
 
 Jarraian, APIaren sarbide-puntu bakoitza (endpointak) eta kontsulta metodoak zehazten da.
 
 
 # 2. Datu-bankuko taulen zerrenda
 
-GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda agertuko zaizu JSON formatuan. Datu-bankuaren URL helbideak egitura hau du:
+`GET` funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda agertuko zaizu JSON formatuan. Datu-bankuaren URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB`
 
@@ -260,7 +260,7 @@ Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa
 
 ### Irteera-formatuak
 
-APIak 5 formatutan itzul ditzake emaitzak:
+APIak 5 formatutan itzul ditzake taulen datuak:
 
 - **JSON-stat**, 1.2 bertsioa *(formatu lehenetsia))*
 - **CSV** (testu lauean)
