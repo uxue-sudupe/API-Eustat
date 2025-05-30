@@ -17,7 +17,7 @@ Jarraian, APIaren sarbide-puntu bakoitza (endpointak) zehazten da.
 
 # 2. Datu-bankuko taulen zerrenda
 
-GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda JSON formatuan agertuko da. Datu-bankuaren URL helbideak egitura hau du:
+GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda agertuko da JSON formatuan. Datu-bankuaren URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB`
 
@@ -44,7 +44,7 @@ Erantzunaren itxura:
   }
 ```
 
-JSON formatuan azaltzen den erantzunak informazio hau dakar:
+JSON formatuan azaltzen den erantzunak atributu hauek dakartza:
 
 | Campo     | Deskribapena                                                                                          |
 |-----------|-------------------------------------------------------------------------------------------------------|
@@ -56,7 +56,7 @@ JSON formatuan azaltzen den erantzunak informazio hau dakar:
 
 # 3. Taula baten metadatuak
 
-Taula baten URLaren gaineko GET funtzioak taulako metadatuak itzuliko ditu JSON formatuan. Taularen identifikazio kodea ezagutzen baduzu, URLa kontsulta dezakezu parametro hauekin:
+Taula baten URLaren gainean eginez gero, GET funtzioak taulako metadatuak itzuliko ditu JSON formatuan. Taularen identifikazio kodea ezagutzen baduzu, URLa kontsulta dezakezu parametro hauekin:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB/[id]`
 
@@ -188,11 +188,11 @@ Erantzunaren itxura:
 
 Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan, interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan "POST" funtzioa erabiltzen da.
 
-Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Honako iragazki hauek erabiltzen dira:
+Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Honako filtro hauek erabiltzen dira:
 
 | Filtroa | Describapena                                                                |
 |--------|------------------------------------------------------------------------------|
-| `item` | Iragazi nahi diren banakako balioen hautaketa                                                             |
+| `item` | Filtratu nahi diren balioen hautaketa                                                             |
 | `top`  | Lortu nahi diren azken "x" balioen kopurua hautatzeko. Normalean, aldia/urtea aldagaiarekin erabiltzen da |
 
 Adibidez:
@@ -232,29 +232,43 @@ Adibidez:
   }
 }
 ```
-Kontsulta hori egiteko, taulak zer aldagai eta balio dituen jakin behar da. Taula bakoitzaren aldagai eta balioen informazioa bi modutara lor daiteke:
+Kontsulta hau egin ahal izateko, taulak zer aldagai eta balio dituen jakin behar da. Taula bakoitzaren aldagai eta balioen informazioa bi modutara lor daiteke:
 
 - Metadatuak kontsultatuz, 3 atalean adierazten den bezala **3. Taula baten metadatuak**.
-- Datu-bankuko aldagaiak eta balioak hautatzeko laguntzailea (erabiltzailearen interfazea) erabiliz. Taula bateko hautaketa-laguntzailearen URL helbideak egitura hau du:
+- Datu-bankuko aldagaiak eta balioak hautatzeko laguntzailea (erabiltzailearen interfazea) erabiliz. Taula jakin baten hautaketa-laguntzailearen URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/pxweb/{lang}/DB/-/{id}`
 
-Jarraian, hautaketa-laguntzailea erabiliz POST kontsulta konfiguratzeko beharrezko urratsak azalduko ditugu:
+Jarraian, hautaketa-laguntzailea erabiliz POST kontsulta konfiguratzeko eman behar diren urratsak azalduko ditugu:
 
 
-### Ejemplo de selección de variables y valores
+### Nola hautatu aldagaiak eta balioak
 
-Queremos seleccionar algunos valores concretos de la tabla "Producto interior bruto (PIB) de la C.A. de Euskadi (oferta) por territorio histórico, rama de actividad (A-38), tipo de dato y de medida. 1995 - 2023" que se encuentra en la dirección https://es.eustat.eus/bankupx/pxweb/es/DB/-/PX_170112_cpib_pib_a_01.px.
+Balio konkretu batzuk aukeratu nahi ditugu honako taula honetan: "Euskal AEko barne produktu gordina (BPG-eskaintza), lurralde historiko, jarduera-adar (A-38), datu-mota eta neurri-motaren arabera. 1995 - 2023".
+Taula helbide honetan dago: (https://eu.eustat.eus/bankupx/pxweb/eu/DB/-/PX_170112_cpib_pib_a_01.px).
 
-![Selección de variables y valores](../img/PIB_seleccion.PNG)
+![Aldagaiak eta balioak aukeratu](../img/BPG_aukeraketa.PNG)
 
-Haz clic en el apartado **“Disponer de esta tabla en su aplicación”**. Esto mostrará la URL y la consulta necesarias para obtener los datos mediante la API.
+Egin klik **Taula hau aplikazioan edukitzea** atalean. Hor azalduko dira APIaren bidez datuak lortzeko beharrezkoak diren URLa eta kontsulta.
 
-![Consulta JSON generada](../img/PIB_consulta.PNG)
+![JSON kontsulta](../img/BPG_kontsulta.PNG)
 
-La interfaz ayuda al usuario a generar y editar el código que se utilizará en la API. Está pensada para generar el código de las consultas y no para su uso en producción.
+Interfazeak APIan erabiliko den kodea sortzen eta editatzen laguntzen dio erabiltzaileari. Kontsulten kodea sortzeko pentsatuta dago, eta ez produkzioan erabiltzeko.
 
 Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/tutorial_R_es.Rmd), [**Python**](../code_examples/tutorial_Python_es.ipynb) y [**JavaScript**](../code_examples/tutorial_highcharts_es.md) para facilitar a los usuarios el uso de la API de Eustat.
+
+
+Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/tutorial_R_es.Rmd), [**Pythonen**](../code_examples/tutorial_Python_es.ipynb) eta [** JavaScripten**](../code_examples/tutorial_highcharts_es.md) 
+
+
+
+
+
+
+
+
+
+
 
 ### Formatos de salida
 
