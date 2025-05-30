@@ -25,7 +25,7 @@ Jarraian, APIaren sarbide-puntu bakoitza (endpointak) eta kontsulta metodoak zeh
 
 Taulen zerrenda euskeraz:
 
-[https://www.eustat.eus/bankupx/api/v1/eu/DB] (https://www.eustat.eus/bankupx/api/v1/eu/DB)
+(https://www.eustat.eus/bankupx/api/v1/eu/DB)
 
 Erantzunaren itxura:
 
