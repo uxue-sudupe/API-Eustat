@@ -17,7 +17,7 @@ Jarraian, APIaren sarbide-puntu bakoitza (endpointak) eta kontsulta metodoak zeh
 
 # 2. Datu-bankuko taulen zerrenda
 
-GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda agertuko da JSON formatuan. Datu-bankuaren URL helbideak egitura hau du:
+GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda agertuko zaizu JSON formatuan. Datu-bankuaren URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB`
 
