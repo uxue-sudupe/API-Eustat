@@ -186,7 +186,7 @@ Erantzunaren itxura:
 
 # 4. Taula bateko datuak
 
-Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan "POST" funtzioa erabiltzen da.
+Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan `POST` funtzioa erabiltzen da.
 
 Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Honako filtro hauek erabiltzen dira:
 
@@ -255,7 +255,7 @@ Egin klik **Taula hau aplikazioan edukitzea** atalean. Hor azalduko dira APIaren
 
 Interfazeak APIan erabiliko den kodea sortzen eta editatzen laguntzen dio erabiltzaileari. Kontsulten kodea sortzeko pentsatuta dago, eta ez produkzioan erabiltzeko.
 
-Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/tutorial_R_es.Rmd), [**Pythonen**](../code_examples/tutorial_Python_es.ipynb) eta [**JavaScripten**](../code_examples/tutorial_highcharts_es.md) 
+Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/tutorial_R_eu.Rmd), [**Pythonen**](../code_examples/tutorial_Python_eu.ipynb) eta [**JavaScripten**](../code_examples/tutorial_highcharts_eu.md) 
 
 
 ### Irteera-formatuak
