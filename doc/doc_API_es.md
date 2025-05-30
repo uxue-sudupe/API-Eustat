@@ -259,13 +259,12 @@ Para leer los archivos JSON de salida de las solicitudes de datos descritas en e
 
 ### Formatos de salida
 
-La API puede devolver resultados en 6 formatos diferentes:
+La API puede devolver resultados en 5 formatos diferentes:
 
-- **JSON-stat**, versión 2 *(formato predeterminado)*
+- **JSON-stat**, versión 1.2 *(formato predeterminado)*
 - **CSV** (formato plano)
 - **CSV2** (formato compatible con tablas dinámicas)
 - **CSV3** (igual que CSV2, pero con códigos en lugar de texto)
 - **XLSX** (Excel)
-- **JSON-stat**, versión 1.2
 
 Para un tratamiento flexible de los datos, recomendamos JSON-stat, que es la salida por defecto.
