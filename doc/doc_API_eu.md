@@ -21,7 +21,7 @@ GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrend
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB`
 
-`{lang}` parametroa hizkuntzari dagokio. Nahitaezkoa da eta balio hauek har ditzake: EU:euskara / ES:gaztelania / EN:ingelesa.
+`{lang}` parametroa hizkuntzari dagokio. Nahitaezkoa da eta balio hauek har ditzake: EU: euskara / ES: gaztelania / EN: ingelesa.
 
 Taulen zerrenda euskeraz:
 
