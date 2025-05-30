@@ -263,7 +263,7 @@ Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa
 APIak 5 formatutan itzul ditzake emaitzak:
 
 - **JSON-stat**, 1.2 bertsioa *(formatu lehenetsia))*
-- **CSV** (plano formatua)
+- **CSV** (testu lauean)
 - **CSV2** (formatu bateragarria taula dinamikoekin)
 - **CSV3** (CSV2 bezala, baina kodeekin testuaren ordez)
 - **XLSX** (Excel)
