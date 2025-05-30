@@ -1,8 +1,8 @@
 # 1. Sarrera
 
-Eustatek 2.000 taula baino gehiago dituen [Datu Bankua](https://eu.eustat.eus/banku/indexArbol.html) kontsultatzeko API bat du martxan.
+Eustatek API bat dauka martxan, bere [Datu Bankuan](https://eu.eustat.eus/banku/indexArbol.html) dauden 2.000tik gora taulak kontsultatzeko.
 
-APIaren helburu nagusia denbora errealean datu estatistikoetarako sarbidea eskaintzea da, datuak berrerabili ahal izateko. Datu horiek analisi edo bistaratze ingurune desberdinetan integratu daiteze erraz, honakoa egiteko, adibidez:
+APIaren helburu nagusia denbora errealean datu estatistikoetarako sarbidea eskaintzea da, berrerabili ahal izateko. Datu horiek analisi edo bistaratze ingurune desberdinetan integratu daiteze erraz, honakoa egiteko, adibidez:
 
 - Web orrietan taula edo grafiko gisa bistaratu, denbora errealean.
 - R, Python edo Jupyter Notebooks bezalako tresnetara inportatu, ondoren prozesatu eta aztertzeko.
