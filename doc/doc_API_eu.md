@@ -10,7 +10,7 @@ APIaren helburu nagusia denbora errealean datu estatistikoetarako sarbidea eskai
 API honek http `POST` eta `GET` metodoak erabiltzen ditu:
 
 - Datu-bankuko taulen zerrenda bat lortzeko erabiltzen da `GET`. Metadatuak ere itzultzen ditu, taula zehatz bat kontsultatuz gero.
-- Datuak lortzeko, "`POST` funtzioa erabili eta kontsulta bat egin behar da JSON (JavaScript Objektuen Notazioa) formatuan. Taula osoa edo haren zatiak eskura ditzakezu.
+- Datuak lortzeko, `POST` funtzioa erabili eta kontsulta bat egin behar da JSON (JavaScript Objektuen Notazioa) formatuan. Taula osoa edo haren zatiak eskura ditzakezu.
 
 Jarraian, APIaren sarbide-puntu bakoitza (endpointak) eta kontsulta metodoak zehazten da.
 
