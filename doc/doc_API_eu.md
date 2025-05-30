@@ -56,13 +56,13 @@ JSON formatuan azaltzen den erantzunak atributu hauek dakartza:
 
 # 3. Taula baten metadatuak
 
-Taula baten URLaren gainean eginez gero, GET funtzioak taulako metadatuak itzuliko ditu JSON formatuan. Taularen identifikazio kodea ezagutzen baduzu, URLa kontsulta dezakezu parametro hauekin:
+Taula baten URLaren gainean eginez gero, `GET` funtzioak taulako metadatuak itzuliko ditu JSON formatuan. Taularen identifikazio kodea ezagutzen baduzu, URLa kontsulta dezakezu parametro hauekin:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB/[id]`
 
 `{lang}` eremua hizkuntzari dagokio, eta `[id]` eremua taularen identifikatzaileari dagokio, interesatzen zaizun datu edo metadatuekin.
 
-Metadatuek izenburu bat dute ("title") eta taulako aldagai zerrenda bat.
+Metadatuek izenburu bat dute ("title") eta taulan azaltzen diren aldagaien zerrenda.
 
 Adibidea:
 
