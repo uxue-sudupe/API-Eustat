@@ -255,30 +255,18 @@ Egin klik **Taula hau aplikazioan edukitzea** atalean. Hor azalduko dira APIaren
 
 Interfazeak APIan erabiliko den kodea sortzen eta editatzen laguntzen dio erabiltzaileari. Kontsulten kodea sortzeko pentsatuta dago, eta ez produkzioan erabiltzeko.
 
-Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/tutorial_R_es.Rmd), [**Python**](../code_examples/tutorial_Python_es.ipynb) y [**JavaScript**](../code_examples/tutorial_highcharts_es.md) para facilitar a los usuarios el uso de la API de Eustat.
+Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/tutorial_R_es.Rmd), [**Pythonen**](../code_examples/tutorial_Python_es.ipynb) eta [**JavaScripten**](../code_examples/tutorial_highcharts_es.md) 
 
 
-Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/tutorial_R_es.Rmd), [**Pythonen**](../code_examples/tutorial_Python_es.ipynb) eta [** JavaScripten**](../code_examples/tutorial_highcharts_es.md) 
+### Irteera-formatuak
 
+APIak 5 formatutan itzul ditzake emaitzak:
 
-
-
-
-
-
-
-
-
-
-### Formatos de salida
-
-La API puede devolver resultados en 5 formatos diferentes:
-
-- **JSON-stat**, versión 1.2 *(formato predeterminado)*
-- **CSV** (formato plano)
-- **CSV2** (formato compatible con tablas dinámicas)
-- **CSV3** (igual que CSV2, pero con códigos en lugar de texto)
+- **JSON-stat**, 1.2 bertsioa *(formatu lehenetsia))*
+- **CSV** (plano formatua)
+- **CSV2** (formatu bateragarria taula dinamikoekin)
+- **CSV3** (CSV2 bezala, baina kodeekin testuaren ordez)
 - **XLSX** (Excel)
 
-Para un tratamiento flexible de los datos, recomendamos JSON-stat, que es la salida por defecto.
+Datuen tratamendu malgu baterako, JSON-stat gomendatzen dugu.
 
