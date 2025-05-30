@@ -10,74 +10,73 @@ APIaren helburu nagusia denbora errealean datu estatistikoetarako sarbidea eskai
 API honek http **POST** eta **GET** metodoak erabiltzen ditu:
 
 - Datu-bankuko taulen zerrenda bat lortzeko erabiltzen da GET. Metadatuak ere itzultzen ditu, taula zehatz bat kontsultatuz gero.
-- Datuak lortzeko, "POST" funtzioa erabili eta **JSON*** (JavaScript Objektuen Notazioa) orrian kontsulta bat egin behar duzu. Taula osoa edo haren zatiak eskura ditzakezu.
+- Datuak lortzeko, "POST" funtzioa erabili eta kontsulta bat egin **JSON*** (JavaScript Objektuen Notazioa) formatuan. Taula osoa edo haren zatiak eskura ditzakezu.
 
 Jarraian, APIaren sarbide-puntu bakoitza (endpointak) zehazten da.
 
 
-# 2. Listado de tablas del banco de datos
+# 2. Datu-bankuko taulen zerrenda
 
-Si usas la función GET sobre la url del banco de datos, se muestra el listado de todas las tablas en formato JSON. La dirección url del banco de datos tiene la siguiente estructura: 
+GET funtzioa datu-bankuaren url gainean erabiltzen baduzu, taula guztien zerrenda JSON formatuan agertuko da. Datu-bankuaren URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB`
 
-El campo {lang} corresponde al idioma. Es obligatorio y puede tomar los siguientes valores: ES: español / EU: euskera / EN: inglés.
+`{lang}` parametroa hizkuntzari dagokio. Nahitaezkoa da eta balio hauek har ditzake: EU:euskara / ES:gaztelania / EN:ingelesa.
 
-Listado de tablas en español:
+Taulen zerrenda euskeraz:
 
-👉 [https://www.eustat.eus/bankupx/api/v1/es/DB](https://www.eustat.eus/bankupx/api/v1/es/DB)
+[https://www.eustat.eus/bankupx/api/v1/eu/DB] (https://www.eustat.eus/bankupx/api/v1/eu/DB)
 
-Aspecto de la respuesta:
+Erantzunaren itxura:
 
 ```json
-[
-  {
+{
     "id": "PX__fe_inem06.px",
     "type": "t",
-    "text": "Paro registrado de la C.A. de Euskadi por ámbitos territoriales y sexo. 1997 - 2022",
+    "text": "Euskal AEko erregistratutako langabezia, lurralde eremuaren eta sexuaren arabera. 1997 - 2022",
     "updated": "2023-01-09T15:04:41"
   },
   {
     "id": "PX__feinem_inem06.px",
     "type": "t",
-    "text": "Paro registrado de la C.A. de Euskadi por ámbitos territoriales y sexo",
+    "text": "Euskal AEko erregistratutako langabezia, lurralde eremuaren eta sexuaren arabera",
     "updated": "2021-02-17T10:04:22"
   }
-]
 ```
 
-El texto JSON que se muestra contiene los siguientes campos:
+JSON formatuan azaltzen den erantzunak informazio hau dakar:
 
-| Campo     | Descripción                                                                                           |
+| Campo     | Deskribapena                                                                                          |
 |-----------|-------------------------------------------------------------------------------------------------------|
-| `id`      | Código identificador de la tabla                                                                      |
-| `type`    | `t` = Tabla                                                                                           |
-| `text`    | Título de la tabla (descripción del contenido + intervalo de tiempo)                                  |
-| `updated` | Fecha de última actualización de la tabla    
+| `id`      | Taularen kode identifikatzailea                                                                       |
+| `type`    | `t` = Taula                                                                                           |
+| `text`    | Taularen izenburua (edukiaren deskribapena + denbora-tartea)                                          |
+| `updated` | Taula azken aldiz eguneratu den eguna    
 
 
-# 3. Metadatos de una tabla
+# 3. Taula baten metadatuak
 
-La función GET sobre la URL de una tabla devolverá los metadatos de la tabla en formato JSON. Si conoces el código identificador de la tabla en el banco de datos, puedes usar la URL con estos parámetros:
+Taula baten URLaren gaineko GET funtzioak taulako metadatuak itzuliko ditu JSON formatuan. Taularen identifikazio kodea ezagutzen baduzu, URLa kontsulta dezakezu parametro hauekin:
 
 `https://www.eustat.eus/bankupx/api/v1/{lang}/DB/[id]`
 
-El campo {lang} corresponde al idioma, y el campo [id] corresponde al identificador de la tabla con los datos o metadatos de interés.
+`{lang}` eremua hizkuntzari dagokio, eta `[id]` eremua taularen identifikatzaileari dagokio, interesatzen zaizun datu edo metadatuekin.
 
-Los metadatos constan de un título ("title") y una lista de variables para la tabla.
+Metadatuek izenburu bat dute ("title") eta taulako aldagai zerrenda bat.
 
-Ejemplo:
+Adibidea:
 
-👉(https://www.eustat.eus/bankupx/api/v1/es/DB/PX_050403_cpra_tab_a_25.px)
+👉(https://www.eustat.eus/bankupx/api/v1/eu/DB/PX_050403_cpra_tab_a_25.px)
 
-Aspecto de la respuesta:
+Erantzunaren itxura:
 
 ```json
- "title": "Media de horas semanales trabajadas por la población ocupada de 16 y más años de la C.A. de Euskadi por, territorio histórico, sexo, sector económico y trimestre (horas). 2015 - 2025",
+{
+  "title": "Euskal AEko 16 urte eta gehiagoko biztanleria landunaren asteko orduen batez bestekoa, lurralde, sexu, sektore ekonomiko eta hiruhilekoaren arabera (orduak). 2015 - 2025",
   "variables": [
     {
       "code": "territorio histórico",
-      "text": "territorio histórico",
+      "text": "lurralde historikoa",
       "values": [
         "_T",
         "01",
@@ -85,7 +84,7 @@ Aspecto de la respuesta:
         "20"
       ],
       "valueTexts": [
-        "C.A. de Euskadi",
+        "Euskal AE",
         "Araba/Álava",
         "Bizkaia",
         "Gipuzkoa"
@@ -93,21 +92,21 @@ Aspecto de la respuesta:
     },
     {
       "code": "sexo",
-      "text": "sexo",
+      "text": "sexua",
       "values": [
         "_T",
         "1",
         "2"
       ],
       "valueTexts": [
-        "Total",
-        "Hombre",
-        "Mujer"
+        "Guztira",
+        "Gizona",
+        "Emakumea"
       ]
     },
     {
       "code": "sector económico",
-      "text": "sector económico",
+      "text": "sektore ekonomikoa",
       "values": [
         "_T",
         "01",
@@ -116,16 +115,16 @@ Aspecto de la respuesta:
         "04"
       ],
       "valueTexts": [
-        "Total",
-        "Agricultura, ganadería, silvicultura y pesca",
-        "Industrias ",
-        "Construcción",
-        "Servicios"
+        "Guztira",
+        "Nekazaritza, abeltzaintza, basozaintza eta arrantza",
+        "Industria",
+        "Eraikuntza",
+        "Zerbitzuak"
       ]
     },
     {
       "code": "trimestre",
-      "text": "trimestre",
+      "text": "hiruhilekoa",
       "values": [
         "10",
         "20",
@@ -134,16 +133,16 @@ Aspecto de la respuesta:
         "50"
       ],
       "valueTexts": [
-        "Promedio anual",
-        "Trimestre 1",
-        "Trimestre 2",
-        "Trimestre 3",
-        "Trimestre 4"
+        "Urteko batez bestekoa",
+        "1. Hiruhilekoa",
+        "2. Hiruhilekoa",
+        "3. Hiruhilekoa",
+        "4. Hiruhilekoa"
       ]
     },
     {
       "code": "periodo",
-      "text": "periodo",
+      "text": "aldia",
       "values": [
         "2015",
         "2016",
@@ -175,29 +174,28 @@ Aspecto de la respuesta:
   ]
 ```
 
- Los objetos "variables" tienen cuatro atributos:
+"Variables" objetuek lau atributu dituzte:
 
-| Campo       | Descripción                                                |
-|-------------|------------------------------------------------------------|
-| `code`      | Código de la variable                                      |
-| `text`      | Nombre de la variable                                      |
-| `values`    | Listado de valores de la variable, en código               |
-| `valueTexts`| Listado de valores de la variable, en texto                |
+| Campo       | Descripción                                          |
+|-------------|------------------------------------------------------|
+| `code`      | Aldagaiaren kodea                                    |
+| `text`      | Aldagaiaren izena                                    |
+| `values`    | Aldagaiaren balioen zerrenda, kodean                 |
+| `valueTexts`| Aldagaiaren balioen zerrenda, testuan                |
 
 
+# 4. Taula bateko datuak
 
-# 4. Datos de una tabla
+Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan, interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan "POST" funtzioa erabiltzen da.
 
-Para obtener los datos de una tabla, debes formular una consulta en formato JSON a la url de la tabla de interés. Es el mismo punto de acceso que se utiliza para obtener los metadatos, pero esta vez se utiliza la función `POST`.
+Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Honako iragazki hauek erabiltzen dira:
 
-Todas las consultas comienzan con el objeto: `{query: [{...}]}`. Los filtros que se utilizan son estos:
-
-| Filtro | Descripción                                                                 |
+| Filtroa | Describapena                                                                |
 |--------|------------------------------------------------------------------------------|
-| `item` | Selección de los valores individuales que se quieren filtrar                |
-| `top`  | Selección del número de los últimos valores que se quieren obtener. Se usa normalmente con la variable periodo/año |
+| `item` | Iragazi nahi diren banakako balioen hautaketa                                                             |
+| `top`  | Lortu nahi diren azken "x" balioen kopurua hautatzeko. Normalean, aldia/urtea aldagaiarekin erabiltzen da |
 
-Por ejemplo:
+Adibidez:
 
 ```json
 {
@@ -205,18 +203,18 @@ Por ejemplo:
     {
       "code": "componente",
       "selection": {
-        "filter": "item",     // ← filtro de la variable "componente"
+        "filter": "item",     // ← "componente" izeneko aldagaiaren filtroa
         "values": [
-          "200"               // ← valor seleccionado
+          "200"               // ← aukeratutako balioa
         ]
       }
     },
     {
       "code": "tipo de serie",
       "selection": {
-        "filter": "item",     // ← filtro de la variable "tipo de serie"
+        "filter": "item",     // ←  "tipo de serie" izeneko aldagaiaren filtroa
         "values": [
-          "10",               // ← valores seleccionados
+          "10",               // ← aukeratutako balioak
           "30"
         ]
       }
@@ -224,24 +222,25 @@ Por ejemplo:
     {
       "code": "periodo",
       "selection": {
-        "filter": "top",      // ← filtro "top", últimos X valores de la variable "periodo"
-        "values": [5]         // ← se seleccionan los 5 últimos valores
+        "filter": "top",      // ←  "top" filtroa, "periodo" izeneko aldagaiaren azken "x" baloreak lortzeko
+        "values": [5]         // ← azken 5 baloreak eskatzen dira
       }
     }
   ],
   "response": {
-    "format": "json-stat"     // ← formato de salida (json-stat por defecto)
+    "format": "json-stat"     // ← irteerako formatua (json-stat dago lehenetsia)
   }
 }
 ```
-Para realizar esta consulta es necesario conocer qué variables y valores contiene la tabla. Esta información se puede obtener de dos formas:
+Kontsulta hori egiteko, taulak zer aldagai eta balio dituen jakin behar da. Taula bakoitzaren aldagai eta balioen informazioa bi modutara lor daiteke:
 
-- Consultando los metadatos, como se indica en el apartado **3. Metadatos de una tabla**.
-- Utilizando el asistente para la selección de variables y valores (interfaz de usuario) del banco de datos. La dirección url del asistente de una tabla tiene la siguiente estructura:
+- Metadatuak kontsultatuz, 3 atalean adierazten den bezala **3. Taula baten metadatuak**.
+- Datu-bankuko aldagaiak eta balioak hautatzeko laguntzailea (erabiltzailearen interfazea) erabiliz. Taula bateko hautaketa-laguntzailearen URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/pxweb/{lang}/DB/-/{id}`
 
-A continuación, se muestran los pasos necesarios para configurar la consulta POST utilizando el asistente:
+Jarraian, hautaketa-laguntzailea erabiliz POST kontsulta konfiguratzeko beharrezko urratsak azalduko ditugu:
+
 
 ### Ejemplo de selección de variables y valores
 
