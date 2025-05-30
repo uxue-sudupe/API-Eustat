@@ -51,7 +51,7 @@ JSON formatuan azaltzen den erantzunak atributu hauek dakartza:
 | `id`      | Taularen kode identifikatzailea                                                                       |
 | `type`    | `t` = Taula                                                                                           |
 | `text`    | Taularen izenburua (edukiaren deskribapena + denbora-tartea)                                          |
-| `updated` | Taula azken aldiz eguneratu den eguna    
+| `updated` | Taula azken aldiz eguneratu den eguna eta ordua
 
 
 # 3. Taula baten metadatuak
