@@ -180,13 +180,13 @@ Erantzunaren itxura:
 |-------------|------------------------------------------------------|
 | `code`      | Aldagaiaren kodea                                    |
 | `text`      | Aldagaiaren izena                                    |
-| `values`    | Aldagaiaren balioen zerrenda, kodean                 |
-| `valueTexts`| Aldagaiaren balioen zerrenda, testuan                |
+| `values`    | Aldagaiaren balioen zerrenda, kodeekin               |
+| `valueTexts`| Aldagaiaren balioen zerrenda, testuekin              |
 
 
 # 4. Taula bateko datuak
 
-Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan, interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan "POST" funtzioa erabiltzen da.
+Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan "POST" funtzioa erabiltzen da.
 
 Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Honako filtro hauek erabiltzen dira:
 
