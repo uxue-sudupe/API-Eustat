@@ -66,7 +66,7 @@ Metadatuek izenburu bat dute ("title") eta taulako aldagai zerrenda bat.
 
 Adibidea:
 
-👉(https://www.eustat.eus/bankupx/api/v1/eu/DB/PX_050403_cpra_tab_a_25.px)
+👉 https://www.eustat.eus/bankupx/api/v1/eu/DB/PX_050403_cpra_tab_a_25.px
 
 Erantzunaren itxura:
 
