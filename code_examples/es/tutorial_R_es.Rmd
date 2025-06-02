@@ -131,13 +131,13 @@ Por ejemplo, si queremos datos de la tasa de paro por sexo, iríamos a la págin
 
 Y hacemos la selección que nos interesa: seleccionamos los datos de la tasa de paro para la C.A. de Euskadi, los 2 sexos (y el total) y los datos trimestrales de los 3 últimos años.
 
-\*\*\*\*Ejemplo de Selección:\*\*\*\*
+***Ejemplo de Selección***
 
-![Selección](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_seleccion.png){width="600"}
+![](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_seleccion.png){width="600"}
 
 Tras hacer la selección pulsamos "Continuar" y "Disponer de esta tabla en su aplicación". En este apartado aparecerán tanto la url a la que hay que hacer la petición como la consulta json, que será la que incluiremos en nuestro código.
 
-![Consulta Json](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_consulta.png){width="600"}
+![](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_consulta.png){width="600"}
 
 ```{r}
 url <- "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_050403_cpra_tab01.px"
