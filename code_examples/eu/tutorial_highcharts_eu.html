@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nola sortu grafiko sinple bat Eustaten APIaren datuetatik abiatuta, JavaScript eta Highcharts-ekin </title>
+
+  <!-- Oinarrizko estiloak -->
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+      line-height: 1.6;
+      color: #000;
+    }
+    h1, h2 {
+      color: #000;
+    }
+    pre {
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      padding: 1em;
+      overflow-x: auto;
+    }
+    code {
+      font-family: monospace;
+      white-space: pre;
+    }
+    #container {
+      margin-top: 2em;
+    }
+    .nota {
+      margin-top: 2em;
+      font-size: 0.95em;
+      color: #555;
+    }
+  </style>
+
+  <!-- Librerías -->
+  <script src="https://cdn.jsdelivr.net/npm/jsonstat@0.13.3/json-stat.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+  <h1>Nola sortu grafiko sinple bat Eustaten APIaren datuetatik abiatuta, JavaScript eta Highcharts-ekin</h1>
+
+  <p>
+  Tutorial labur honek erakusten du nola sortu bistaratze dinamiko bat Highchartsekin, Eustaten APIari egindako kontsulta batetik abiatuta.
+  Estatistikak bistaratzeko APIaren erabilera sustatzeko helburuarekin, adibide sinple bat aurkezten da.
+  </p>
+
+  <h2>1. HTMLren oinarrizko egitura</h2>
+  <p>
+    Highcharts grafiko interaktiboen JavaScript liburutegi bat da. Ahalegin gutxirekin mota guztietako grafiko erakargarriak sortu daitezke: lerroak, barrak, mapak, eremuak, etab.
+  Grafiko landuagoak eta horien kodea ikusteko, <a href="https://www.highcharts.com/demo" target="_blank">Highchartsen adibide-galeria</a> bisita dezakezu.
+  </p>   
+  <p>
+    Highcharts-en abantailetako bat da erraz integratzen dela APIekin eta HTML gutxi behar duela. Lerroen grafiko hau lortzeko html orri bakarra beharko dugu,
+     beharrezko liburutegien erreferentzia eta grafikoa sortzeko leku bat.
+  </p>
+
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;title&gt;Chart&lt;/title&gt;
+  &lt;script src="http://code.jquery.com/jquery-1.9.1.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container" style="height: 400px;"&gt;&lt;/div&gt;
+  &lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript"&gt;
+    // Hemen sartzen da APIaren bidez datuak lortzeko kodea eta grafikoa marrazteko beharrezko parametroak
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <h2>2. Eustaten APIari kontsulta</h2>
+  <p>
+    Hurrengo JSON kontsulta Eustateko Datu Bankuko taula bateko aldagaiak eta balioak hautatzeko interfazea erabiliz sortu da.
+    "Euskal AEko biztanleria, lurralde eremuaren, adin betearen talde handien eta sexuaren arabera . 2001/01/01 - 2024/01/01"
+    helbide honetan dago:: https://www.eustat.eus/bankupx/pxweb/eu/DB/-/PX_010154_cepv1_ep06b.px
+  </p>
+  </p>
+    Balioak hautatzeko laguntzaileak interesatzen zaizkigun datuak erraz hautatzeko eta kontsultaren kodea JSON formatuan lortzeko aukera ematen digu. Gure
+    aukera hau izan da: Euskal Autonomia Erkidegoko, Arabako, Bizkaiko eta Gipuzkoako biztanleria osoa, 2001-2024 urteetarako, urtarrilaren 1ean. 
+    Json kontsulta hau zuzenean HTMLren <code>&lt;script&gt;</code> blokearen barruan integratu daiteke.
+  </p>
+
+  <pre><code>{
+    const url = "https://www.eustat.eus/bankupx/api/v1/eu/DB/PX_010154_cepv1_ep06b.px";
+
+    const query = {
+  "query": [
+    {
+      "code": "ámbitos territoriales",
+      "selection": {
+        "filter": "item",
+        "values": ["00001", "01", "48", "20"]
+      }
+    },
+    {
+      "code": "grandes grupos de edad cumplida",
+      "selection": {
+        "filter": "item",
+        "values": ["10"]
+      }
+    },
+    {
+      "code": "sexo",
+      "selection": {
+        "filter": "item",
+        "values": ["10"]
+      }
+    },
+    {
+      "code": "periodo",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "20010101", "20020101", "20030101", "20040101",
+          "20050101", "20060101", "20070101", "20080101",
+          "20090101", "20100101", "20110101", "20120101",
+          "20130101", "20140101", "20150101", "20160101",
+          "20170101", "20180101", "20190101", "20200101",
+          "20210101", "20220101", "20230101", "20240101"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat"
+  }
+}</code></pre>
+
+  <h2>3. Grafiko dinamikoa</h2>
+
+  <p>
+    Grafiko dinamiko sinple bat sortu dugu JavaScript eta Highchartsekin. Datuak dinamikoki lortzen dira Eustaten APIari JSON formatuan egindako kontsulta bati esker.
+  </p>
+
+  <div id="container" style="width: 100%; height: 500px;"></div>
+
+  <p class="nota">
+    💡 Oharra: egin klik saguaren eskuineko botoiarekin eta hautatu <em>"Ikusi orrialdearen iturburu-kodea"</em> grafikoaren HTML kode osoa ikusteko.
+  </p>
+
+  <script>
+    const url = "https://www.eustat.eus/bankupx/api/v1/eu/DB/PX_010154_cepv1_ep06b.px";
+
+    const query = {
+      "query": [
+        {
+          "code": "ámbitos territoriales",
+          "selection": {
+            "filter": "item",
+            "values": ["00001", "01", "48", "20"]
+          }
+        },
+        {
+          "code": "grandes grupos de edad cumplida",
+          "selection": {
+            "filter": "item",
+            "values": ["10"]
+          }
+        },
+        {
+          "code": "sexo",
+          "selection": {
+            "filter": "item",
+            "values": ["10"]
+          }
+        },
+        {
+          "code": "periodo",
+          "selection": {
+            "filter": "item",
+            "values": [
+              "20010101", "20020101", "20030101", "20040101",
+              "20050101", "20060101", "20070101", "20080101",
+              "20090101", "20100101", "20110101", "20120101",
+              "20130101", "20140101", "20150101", "20160101",
+              "20170101", "20180101", "20190101", "20200101",
+              "20210101", "20220101", "20230101", "20240101"
+            ]
+          }
+        }
+      ],
+      "response": {
+        "format": "json-stat"
+      }
+    };
+
+    $.post(url, JSON.stringify(query), function (obj) {
+      const ds = JSONstat(obj).Dataset(0);
+      const tiempo = ds.Dimension({ role: "time" })[0];
+      const etiquetas = tiempo.id.map(id => tiempo.Category(id).label);
+
+      const territorios = {
+        "00001": "Euskadi",
+        "01": "Araba/Álava",
+        "48": "Bizkaia",
+        "20": "Gipuzkoa"
+      };
+
+      const series = Object.keys(territorios).map(cod => {
+        return {
+          name: territorios[cod],
+          data: ds.Data({ "ámbitos territoriales": cod }, false)
+        };
+      });
+
+      Highcharts.chart('container', {
+        chart: {
+          type: 'line'
+        },
+        title: {
+          text: 'Euskal AEko eta bere lurralde historikoetako biztanleriaren bilakaera (urtarrilaren 1a, 2001 – 2024))'
+        },
+        xAxis: {
+          categories: etiquetas,
+          title: { text: 'Data' },
+          tickInterval: 1
+        },
+        yAxis: {
+          title: { text: 'Biztanleria' }
+        },
+        tooltip: {
+          valueSuffix: ' hab.'
+        },
+        series: series
+      });
+    });
+  </script>
+
+</body>
+</html>
