@@ -269,7 +269,7 @@ Egin klik **Taula hau aplikazioan edukitzea** atalean. Hor azalduko dira APIaren
 
 Interfazeak APIan erabiliko den kodea sortzen eta editatzen laguntzen dio erabiltzaileari. Kontsulten kodea sortzeko pentsatuta dago, eta ez produkzioan erabiltzeko.
 
-Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/eu/tutorial_R_eu.Rmd), [**Pythonen**](../code_examples/eu/tutorial_Python_eu.ipynb) eta [**JavaScripten**](../code_examples/es/tutorial_highcharts_eu.md) 
+Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/eu/tutorial_R_eu.Rmd), [**Pythonen**](../code_examples/eu/tutorial_Python_eu.ipynb) eta [**JavaScripten**](../code_examples/eu/tutorial_highcharts_eu.md) 
 
 
 ### Irteera-formatuak
