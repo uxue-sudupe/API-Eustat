@@ -2,7 +2,7 @@
 ## Eustaten APIaren dokumentazioa eta tutorialak     
 
 ###  **1. Eustaten APIaren gida teknikoa**
-📘 [Eustaten APIaren gida teknikoak](doc/doc_API_eu.md) Eustaten APIari buruzko oinarrizko informazioa ematen du: sarbide puntuak (endpoint-ak), eskaeren egitura (GET eta POST), hizkuntza parametroak eta erantzun formatuak (JSON, CSV, XLSX). APIaren funtzionamendua ulertzeko lehen urratsa da.
+📘 [Eustaten APIaren gida teknikoak](doc/API_doc_eu.md) Eustaten APIari buruzko oinarrizko informazioa ematen du: sarbide puntuak (endpoint-ak), eskaeren egitura (GET eta POST), hizkuntza parametroak eta erantzun formatuak (JSON, CSV, XLSX). APIaren funtzionamendua ulertzeko lehen urratsa da.
 
 ### 2. Swagger bisorea (OpenAPI estandarra)
 
@@ -12,8 +12,8 @@ APIaren sarrera puntu guztiak (endpoint-ak) eta parametro desberdinak probatu da
 ### 3. Erabilera adibideak
 Eustaten APIa nola erabili erakusteko hiru tutorial praktiko prestatu ditugu. **R**, **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute, adibideen bitartez.
 
-1. 📘 [R-n egindako tutoriala (RMarkdown)](/code_examples/eu/tutorial_R_eu.Rmd)  
-2. 📙 [Python-en egindako tutoriala (Jupyter Notebook)](/code_examples/eu/tutorial_Python_eu.ipynb)
+1. 📘 [R-n egindako tutoriala](/code_examples/eu/tutorial_R_eu.Rmd) RMarkdown formatuan dago Rstudio-n ikusteko. Jupyter Notebook formatuan ere ikus daiteke Google Colab-en irudi honetan klik eginez (Google-eko kontu bat beharko duzu)
+2. 📙 [Python-en egindako tutoriala](/code_examples/eu/tutorial_Python_eu.ipynb)  Jupyter Notebook formatuan ireki Google Colab-en irudi honetan klik eginez (Google-eko kontu bat beharko duzu)
 3. 📊 [Javascript-en adibide bat](https://uxue-sudupe.github.io/API-Eustat/code_examples/eu/tutorial_highcharts_eu.html), API dei bat eginez Highcharts grafiko simple bat nola sortzen den erakusteko
 
   ---
@@ -22,7 +22,7 @@ Eustaten APIa nola erabili erakusteko hiru tutorial praktiko prestatu ditugu. **
 
 ###  **1. Guía técnica de la API de Eustat**
 
-En la 📘 [Guía técnica de la API de Eustat](doc/doc_API_es.md) se proporciona información básica sobre el API de Eustat: puntos de acceso (endpoints), estructura de solicitudes (GET y POST), parámetros de lenguaje y formatos de respuesta (JSON, CSV, XLSX). Es el primer paso para entender cómo se utiliza la API.
+En la 📘 [Guía técnica de la API de Eustat](doc/API_doc_es.md) se proporciona información básica sobre el API de Eustat: puntos de acceso (endpoints), estructura de solicitudes (GET y POST), parámetros de lenguaje y formatos de respuesta (JSON, CSV, XLSX). Es el primer paso para entender cómo se utiliza la API.
 
 ### 2. Visor Swagger (estándar OpenAPI)
 
@@ -33,7 +33,7 @@ los puntos de entrada de la API (endpoints) y parámetros, y si la respuesta es 
 
 Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de la API de Eustat. Están disponibles en **R**, **Python** y **JavaScript** e incluyen ejemplos de consulta y tratamiento de datos.
 
-1. 📘 [Tutorial en R (RMarkdown)](/code_examples/es/tutorial_R_es.Rmd)  
-2. 📙 [Tutorial en R (Jupyter Notebook)](/code_examples/es/tutorial_Python_es.ipynb)  
+1. 📘 [Tutorial en R (RMarkdown)](/code_examples/es/tutorial_R_es.Rmd) está en formato RMarkdown para ver en Rstudio. También se puede ver en formato Jupyter Notebook haciendo clic en esta imagen de Google Colab (necesitarás una cuenta en Google)
+2. 📙 [Tutorial en R (Jupyter Notebook)](/code_examples/es/tutorial_Python_es.ipynb) Abre Jupyter en formato Notebook haciendo clic en la siguiente imagen de Google Colab (necesitarás una cuenta de Google)
 3. 📊 [Ejemplo de código en JavaScript](https://uxue-sudupe.github.io/API-Eustat/code_examples/es/tutorial_highcharts_es.html) para realizar una llamada a la API y generar un gráfico simple con Highcharts
 
