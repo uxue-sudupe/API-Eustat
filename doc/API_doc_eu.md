@@ -274,13 +274,13 @@ Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa
 
 ### Irteera-formatuak
 
-APIak 5 formatutan itzul ditzake taulen datuak:
+APIak 5 formatutan itzul ditzake tauletako datuak:
 
 - **JSON-stat**, 1.2 bertsioa *(formatu lehenetsia))*
 - **CSV** (testu lauean)
-- **CSV2** (formatu bateragarria taula dinamikoekin)
+- **CSV2** (formatu egokiena taula dinamikoekin lan egiteko)
 - **CSV3** (CSV2 bezala, baina kodeekin testuaren ordez)
 - **XLSX** (Excel)
 
-Datuen tratamendu malgu baterako, JSON-stat gomendatzen dugu.
+Datuak erraz eta modu malguan prozesatzeko, JSON-stat formatua gomendatzen dugu.
 
