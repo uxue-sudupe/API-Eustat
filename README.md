@@ -13,7 +13,7 @@ APIaren sarrera puntu guztiak (endpoint-ak) eta parametro desberdinak probatu da
 Eustaten APIa nola erabili erakusteko, hiru tutorial praktiko prestatu ditugu.**R**, **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute, adibideen bitartez.
 
 1. 📘 [R tutoriala](/code_examples/eu/tutorial_R_eu.Rmd) RMarkdown formatuan dago Rstudio-n ikusteko
-2. 📙 [Python tutoriala](/code_examples/eu/tutorial_Python_eu.ipynb)  Jupyter Notebook formatuan dago. Ireki Google Colab-en, irudi honetan klik eginez (Google-ko kontu bat beharko duzu)
+2. 📙 [Python tutoriala](/code_examples/eu/tutorial_Python_eu.ipynb)  Jupyter Notebook formatuan dago. Ireki Google Colab-en, irudi honetan klik eginez [![Ireki Colab-en](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/uxue-sudupe/API-Eustat/blob/main/code_examples/eu/tutorial_Python_eu.ipynb) (Google-ko kontu bat beharko duzu)
 3. 📊 [Javascript-en adibide bat](https://uxue-sudupe.github.io/API-Eustat/code_examples/eu/tutorial_highcharts_eu.html), API dei bat eginez Highcharts grafiko simple bat nola sortzen den erakusteko
 
   ---
@@ -34,6 +34,6 @@ los puntos de entrada de la API (endpoints) y parámetros, y si la respuesta es 
 Este repositorio incluye tres tutoriales prácticos que te guiarán en el uso de la API de Eustat. Están disponibles en **R**, **Python** y **JavaScript** e incluyen ejemplos de consulta y tratamiento de datos.
 
 1. 📘 [Tutorial en R](/code_examples/es/tutorial_R_es.Rmd) está en formato RMarkdown para ver en Rstudio. 
-2. 📙 [Tutorial en Python](/code_examples/es/tutorial_Python_es.ipynb) en formato Jupyter Notebook. Abrelo en Google Colab haciendo clic en la siguiente imagen (necesitarás una cuenta de Google)
+2. 📙 [Tutorial en Python](/code_examples/es/tutorial_Python_es.ipynb) en formato Jupyter Notebook. Abrelo en Google Colab haciendo clic en la siguiente imagen [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/uxue-sudupe/API-Eustat/blob/main/code_examples/es/tutorial_Python_es.ipynb) (necesitarás una cuenta de Google)
 3. 📊 [Ejemplo de código en JavaScript](https://uxue-sudupe.github.io/API-Eustat/code_examples/es/tutorial_highcharts_es.html) para realizar una llamada a la API y generar un gráfico simple con Highcharts
 
