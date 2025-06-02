@@ -28,9 +28,9 @@ library(rjstat)
 
 Es posible acceder al listado completo de los conjuntos de datos publicados por Eustat, con detalle de código identificador, título y fecha de última actualización.
 
-Las tablas son las que se encuentran en el banco de datos de Eustat: https://www.eustat.eus/banku/indexArbol.html
+Las tablas son las que se encuentran en el banco de datos de Eustat: <https://www.eustat.eus/banku/indexArbol.html>
 
-Una llamada a la API se compone de una dirección web principal, una llamada a una función y un conjunto de parámetros. La dirección web principal del banco de datos es https://www.eustat.eus/bankupx/api/v1/[lang]/DB. En este caso, la llamada a la API se hace con la función GET. El único parámetro necesario para obtener el catálogo, es el idioma (lang). La respuesta se recibe en formato JSON.
+Una llamada a la API se compone de una dirección web principal, una llamada a una función y un conjunto de parámetros. La dirección web principal del banco de datos es [https://www.eustat.eus/bankupx/api/v1/[lang]/DB](https://www.eustat.eus/bankupx/api/v1/%5Blang%5D/DB){.uri}. En este caso, la llamada a la API se hace con la función GET. El único parámetro necesario para obtener el catálogo, es el idioma (lang). La respuesta se recibe en formato JSON.
 
 ```{r}
 
@@ -62,7 +62,7 @@ Para acceder a los metadatos de una tabla concreta, debemos añadirle a la url d
 
 Accedemos, por ejemplo, a los metadatos de la tabla que contiene los datos de "Población estimada de la C.A. de Euskadi por territorio histórico, sexo y año de nacimiento", que se encuentra en esta dirección:
 
-https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep17.px
+<https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep17.px>
 
 ```{r}
 
@@ -70,7 +70,6 @@ metadatos<- GET("https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep1
 metadatos_población <- fromJSON(rawToChar(metadatos$content))
 metadatos_población
 ```
-
 
 Los metadatos contienen el título de la tabla, junto con los códigos y literales de las variables y los valores. Puede resultar útil generar una tabla en la que se muestren las variables junto a sus valores, incluyendo la correspondencia entre códigos y etiquetas descriptivas.
 
@@ -132,13 +131,13 @@ Por ejemplo, si queremos datos de la tasa de paro por sexo, iríamos a la págin
 
 Y hacemos la selección que nos interesa: seleccionamos los datos de la tasa de paro para la C.A. de Euskadi, los 2 sexos (y el total) y los datos trimestrales de los 3 últimos años.
 
-****Ejemplo de Selección:****
+\*\*\*\*Ejemplo de Selección:\*\*\*\*
 
-<(https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_seleccion.png" alt="Selección" width="600"/>
+![Selección](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_seleccion.png){width="600"}
 
 Tras hacer la selección pulsamos "Continuar" y "Disponer de esta tabla en su aplicación". En este apartado aparecerán tanto la url a la que hay que hacer la petición como la consulta json, que será la que incluiremos en nuestro código.
 
-<img src="(https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_consulta.png" alt="Consulta json" width="600"/>
+![Consulta Json](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Paro_consulta.png){width="600"}
 
 ```{r}
 url <- "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_050403_cpra_tab01.px"
@@ -198,7 +197,6 @@ writeBin(content(respuesta_csv, "raw"), "lengua_materna.csv")
 
 ```
 
-
 ```{r}
 # Salida en CSV2 - formato "pivot-friendly", compatible con tablas dinámicas
 
@@ -210,7 +208,6 @@ respuesta_csv2 <- POST(url, body = consulta, encode = "raw", content_type_json()
 writeBin(content(respuesta_csv2, "raw"), "lengua_materna_csv2.csv")
 
 ```
-
 
 ```{r}
 # Salida en CSV3 - igual que CSV2, pero con códigos en lugar de texto
@@ -224,7 +221,6 @@ writeBin(content(respuesta_csv3, "raw"), "lengua_materna_csv3.csv")
 
 ```
 
-
 ```{r}
 # Salida en Excel
 
@@ -236,13 +232,3 @@ respuesta_xlsx <- POST(url, body = consulta, encode = "raw", content_type_json()
 writeBin(content(respuesta_xlsx, "raw"), "lengua_materna.xlsx")
 
 ```
-
-
-
-
-
-
-
-
-
-
