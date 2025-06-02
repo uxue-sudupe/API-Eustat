@@ -271,7 +271,7 @@ Haz clic en el apartado **“Disponer de esta tabla en su aplicación”**. Esto
 
 La interfaz ayuda al usuario a generar y editar el código que se utilizará en la API. Está pensada para generar el código de las consultas y no para su uso en producción.
 
-Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/es/tutorial_R_es.Rmd), [**Python**](../code_examples/es/tutorial_Python_es.ipynb) y [**JavaScript**](../code_examples/es/tutorial_highcharts_es.md) para facilitar a los usuarios el uso de la API de Eustat.
+Para leer los archivos JSON de salida de las solicitudes de datos descritas en esta página, debe utilizarse un programa o lenguaje de programación que permita procesar este formato. Se han elaborado tutoriales y ejemplos de código en  [**R**](../code_examples/es/tutorial_R_es.Rmd), [**Python**](../code_examples/es/tutorial_Python_es.ipynb) y [**JavaScript**](https://uxue-sudupe.github.io/API-Eustat/code_examples/es/tutorial_highcharts_es.html) para facilitar a los usuarios el uso de la API de Eustat.
 
 ### Formatos de salida
 
