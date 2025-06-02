@@ -47,18 +47,18 @@
   <h1>Nola sortu grafiko sinple bat Eustaten APIaren datuetatik abiatuta, JavaScript eta Highcharts-ekin</h1>
 
   <p>
-  Tutorial labur honek erakusten du nola sortu bistaratze dinamiko bat Highchartsekin, Eustaten APIari egindako kontsulta batetik abiatuta.
-  Estatistikak bistaratzeko APIaren erabilera sustatzeko helburuarekin, adibide sinple bat aurkezten da.
+  Tutorial labur honek erakusten du nola sortu grafiko dinamiko bat Highchartsekin, Eustaten APIari egindako kontsulta batetik abiatuta.
+  Estatistikak bistaratzeko APIaren erabilera sustatzea du helburu adibide sinple honek.
   </p>
 
   <h2>1. HTMLren oinarrizko egitura</h2>
   <p>
-    Highcharts grafiko interaktiboen JavaScript liburutegi bat da. Ahalegin gutxirekin mota guztietako grafiko erakargarriak sortu daitezke: lerroak, barrak, mapak, eremuak, etab.
-  Grafiko landuagoak eta horien kodea ikusteko, <a href="https://www.highcharts.com/demo" target="_blank">Highchartsen adibide-galeria</a> bisita dezakezu.
+    Grafiko interaktiboen JavaScript liburutegi bat da Highcharts. Ahalegin gutxirekin mota guztietako grafiko erakargarriak sortu daitezke: lerroak, barrak, mapak, etab.
+   Grafiko landuagoak eta horien kodea ikusteko, <a href="https://www.highcharts.com/demo" target="_blank">Highchartsen adibide-galeria</a> bisita dezakezu.
   </p>   
   <p>
-    Highcharts-en abantailetako bat da erraz integratzen dela APIekin eta HTML gutxi behar duela. Lerroen grafiko hau lortzeko html orri bakarra beharko dugu,
-     beharrezko liburutegien erreferentzia eta grafikoa sortzeko leku bat.
+    Highcharts-en abantailetako bat da erraz integratzen dela APIekin eta HTML gutxi behar duela. Lerroen grafiko hau lortzeko html orri bakarra sortuko dugu,
+     behar diren liburutegien erreferentziak dituena eta grafikoa sortzeko kodearentzat leku bat duena.
   </p>
 
   <pre><code>&lt;!DOCTYPE html&gt;
@@ -72,21 +72,23 @@
   &lt;div id="container" style="height: 400px;"&gt;&lt;/div&gt;
   &lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
   &lt;script type="text/javascript"&gt;
-    // Hemen sartzen da APIaren bidez datuak lortzeko kodea eta grafikoa marrazteko beharrezko parametroak
+    
+    // Hemen sartzen da APIaren bidez datuak lortzeko eta grafikoa marrazteko beharrezko parametroen kodea
+    
   &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
   <h2>2. Eustaten APIari kontsulta</h2>
   <p>
-    Hurrengo JSON kontsulta Eustateko Datu Bankuko taula bateko aldagaiak eta balioak hautatzeko interfazea erabiliz sortu da.
-    "Euskal AEko biztanleria, lurralde eremuaren, adin betearen talde handien eta sexuaren arabera . 2001/01/01 - 2024/01/01"
-    helbide honetan dago:: https://www.eustat.eus/bankupx/pxweb/eu/DB/-/PX_010154_cepv1_ep06b.px
+    Grafikoa sortzeko beharrezkoa de JSON kontsulta, Eustateko Datu Bankuko taula bateko aldagaiak eta balioak hautatzeko interfazea erabiliz sortu da.
+    "Euskal AEko biztanleria, lurralde eremuaren, adin betearen talde handien eta sexuaren arabera . 2001/01/01 - 2024/01/01" taula erabili da, 
+    helbide honetan dagoena: https://www.eustat.eus/bankupx/pxweb/eu/DB/-/PX_010154_cepv1_ep06b.px
   </p>
   </p>
-    Balioak hautatzeko laguntzaileak interesatzen zaizkigun datuak erraz hautatzeko eta kontsultaren kodea JSON formatuan lortzeko aukera ematen digu. Gure
+    Balioak hautatzen laguntzen duen interfazeak interesatzen zaizkigun datuak erraz hautatzeko eta kontsultaren kodea JSON formatuan lortzeko aukera ematen digu. Gure
     aukera hau izan da: Euskal Autonomia Erkidegoko, Arabako, Bizkaiko eta Gipuzkoako biztanleria osoa, 2001-2024 urteetarako, urtarrilaren 1ean. 
-    Json kontsulta hau zuzenean HTMLren <code>&lt;script&gt;</code> blokearen barruan integratu daiteke.
+    Json kontsulta hau zuzenean HTMLren <code>&lt;script&gt;</code> blokearen barruan sartu daiteke.
   </p>
 
   <pre><code>{
@@ -138,7 +140,7 @@
   <h2>3. Grafiko dinamikoa</h2>
 
   <p>
-    Grafiko dinamiko sinple bat sortu dugu JavaScript eta Highchartsekin. Datuak dinamikoki lortzen dira Eustaten APIari JSON formatuan egindako kontsulta bati esker.
+    Grafiko dinamiko sinple bat sortu dugu JavaScript eta Highchartsekin. Datuak momenturo eguneratuta ikusten dira Eustaten APIari JSON formatuan egindako kontsulta bati esker.
   </p>
 
   <div id="container" style="width: 100%; height: 500px;"></div>
