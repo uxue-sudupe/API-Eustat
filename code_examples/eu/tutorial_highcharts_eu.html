@@ -102,7 +102,7 @@
   <p>
     Interfaze horrek aukera ematen digu interesatzen zaizkigun datuak erraz hautatzeko eta kontsultaren kodea <em>JSON</em> formatuan lortzeko.
     Gure aukera hau izan da: Euskal Autonomia Erkidegoko, Arabako, Bizkaiko eta Gipuzkoako biztanleria osoa, 2001-2024 urteetarako, urtarrilaren 1ean.
-    <em>endpoint</em> honi egindako <em>POST</em> eskaera honek JSON formatua eskatzen du. Kode hau sartuko dugu kodean, <em>script type="text/javascript</em> lerroaren ondoren.
+    <em>endpoint</em> honi egindako <em>POST</em> eskaera honek JSON formatua eskatzen du. Kode hau sartuko dugu <em>html</em> orrian, <em>script type="text/javascript</em> lerroaren ondoren.
   </p>
 
   <pre><code>{
@@ -147,10 +147,12 @@
 }</code></pre>
 
   <h2>3. Grafiko dinamikoa</h2>
-  <p>
-    <em>JavaScript</em> eta Highcharts erabiliz grafiko dinamiko sinple bat sortu dugu. Datuak uneoro eguneratu daitezke, Eustaten APIari <em>POST</em> bidez
-    egindako <em>JSON</em> kontsultari esker.
-  </p>
+   <p>
+     Ondoren, grafikoaren izenburua, ardatzen izena eta unitateak zehaztu beharko ditugu. Beharko den kodearen formatua orri honetan ikus daiteke: 
+     <a href="https://www.highcharts.com/demo/highcharts/line-chart" target="_blank">https://www.highcharts.com/demo/highcharts/line-chart</a> 
+     (eman <strong>code</strong> botoiari). <em>JavaScript</em> eta Highcharts erabiliz, grafiko dinamiko sinple bat sortu dugu. 
+     Datuak uneoro eguneratu daitezke, Eustaten APIari <em>POST</em> bidez egindako <em>JSON</em> kontsultari esker.
+   </p>
 
   <div id="container" style="width: 100%; height: 500px;"></div>
 
@@ -225,11 +227,11 @@
         },
         xAxis: {
           categories: etiquetas,
-          title: { text: 'Data' },
+          title: { text: 'Urtea' },
           tickInterval: 1
         },
         yAxis: { title: { text: 'Biztanleria' } },
-        tooltip: { valueSuffix: ' hab.' },
+        tooltip: { valueSuffix: ' bizt.' },
         series: series
       });
     });
