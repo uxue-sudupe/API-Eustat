@@ -4,36 +4,51 @@
   <meta charset="UTF-8">
   <title>Cómo crear un gráfico simple a partir de la API de Eustat, JavaScript y Highcharts</title>
 
-  <!-- Estilos básicos -->
-   <style>
+  <!-- Estilo tipo Markdown / GitHub -->
+  <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fafafa;
+      color: #333;
+      max-width: 800px;
       margin: 2em auto;
       padding: 0 1em;
-      line-height: 1.6;
-      color: #000;
+      line-height: 1.7;
     }
     h1, h2 {
-      color: #000;
+      color: #1a1a1a;
+      margin-top: 2em;
+    }
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    code, pre {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95em;
     }
     pre {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
+      background-color: #f6f8fa;
+      border: 1px solid #d1d5da;
+      border-radius: 6px;
       padding: 1em;
       overflow-x: auto;
-    }
-    code {
-      font-family: monospace;
-      white-space: pre;
-    }
-    #container {
-      margin-top: 2em;
     }
     .nota {
       margin-top: 2em;
       font-size: 0.95em;
       color: #555;
+      font-style: italic;
+    }
+    #container {
+      margin-top: 2em;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 1em;
+      border-radius: 8px;
     }
   </style>
 
@@ -44,7 +59,7 @@
 </head>
 <body>
 
-  <h1>Cómo crear un gráfico simple a partir de la API de Eustat, JavaScript y Highcharts</h1>
+  <h1>Cómo crear un gráfico simple a partir de la API de Eustat, <em>JavaScript</em> y Highcharts</h1>
 
   <p>
     Este corto tutorial muestra cómo crear una visualización dinámica con Highcharts a partir de una consulta a la API de Eustat.
@@ -53,9 +68,9 @@
 
   <h2>1. Estructura básica del HTML</h2>
   <p>
-    Highcharts es una biblioteca JavaScript de gráficos interactivos que permite generar visualizaciones atractivas con poco esfuerzo: líneas, barras, mapas, áreas, etc.
+    Highcharts es una biblioteca <em>JavaScript</em> de gráficos interactivos que permite generar visualizaciones atractivas con poco esfuerzo: líneas, barras, mapas, áreas, etc.
     Para ver gráficos más elaborados y su código, puedes visitar la <a href="https://www.highcharts.com/demo" target="_blank">galería de ejemplos de Highcharts</a>.
-  </p>   
+  </p>
   <p>
     Una de las ventajas de Highcharts es que se integra fácilmente con APIs y necesita poco HTML. Para este gráfico de líneas solo necesitaremos una página con una
     referencia a las librerías necesarias y un contenedor para el gráfico.
@@ -79,67 +94,60 @@
 
   <h2>2. Consulta a la API de Eustat</h2>
   <p>
-    La siguiente consulta JSON se ha generado utilizando la  interfaz de selección de variables y valores de una tabla del Banco de Datos de Eustat.
-    Hemos seleccionado la tabla "Población de la C.A. de Euskadi por ámbitos territoriales, grandes grupos de edad cumplida y sexo. 2001/01/01 - 2024/01/01" que 
-    se encuentra en la siguiente dirección: https://www.eustat.eus/bankupx/pxweb/es/DB/-/PX_010154_cepv1_ep06b.px
+    La siguiente consulta <em>JSON</em> se ha generado utilizando la interfaz de selección de variables y valores de una tabla del Banco de Datos de Eustat:
+    <a href="https://www.eustat.eus/bankupx/pxweb/es/DB/-/PX_010154_cepv1_ep06b.px" target="_blank">https://www.eustat.eus/bankupx/pxweb/es/DB/-/PX_010154_cepv1_ep06b.px</a>.
   </p>
-  </p>
-    El asistente para la selección de valores permite seleccionar los datos que nos interesan fácilmente, y obtener la consulta en formato JSON. Seleccionamos
-    la población total de la C.A. de Euskadi, Araba/Álava, Bizkaia y Gipuzkoa, a 1 de enero para los años 2001-2024. Esta consulta se puede integrar 
-    directamente dentro del bloque <code>&lt;script&gt;</code> del HTML.
+  <p>
+    El asistente para la selección de valores permite seleccionar los datos que nos interesan fácilmente y obtener la consulta en formato <em>JSON</em>. Seleccionamos
+    la población total de la C.A. de Euskadi, Araba/Álava, Bizkaia y Gipuzkoa, a 1 de enero para los años 2001–2024. Esta consulta puede integrarse directamente
+    dentro del bloque <code>&lt;script&gt;</code> del HTML. El <em>endpoint</em> espera una solicitud <em>POST</em> con este contenido.
   </p>
 
   <pre><code>{
-    const url = "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep06b.px";
-
-    const query = {
-  "query": [
-    {
-      "code": "ámbitos territoriales",
-      "selection": {
-        "filter": "item",
-        "values": ["00001", "01", "48", "20"]
+  const url = "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep06b.px";
+  const query = {
+    "query": [
+      {
+        "code": "ámbitos territoriales",
+        "selection": {
+          "filter": "item",
+          "values": ["00001", "01", "48", "20"]
+        }
+      },
+      {
+        "code": "grandes grupos de edad cumplida",
+        "selection": {
+          "filter": "item",
+          "values": ["10"]
+        }
+      },
+      {
+        "code": "sexo",
+        "selection": {
+          "filter": "item",
+          "values": ["10"]
+        }
+      },
+      {
+        "code": "periodo",
+        "selection": {
+          "filter": "item",
+          "values": [
+            "20010101", "20020101", ..., "20240101"
+          ]
+        }
       }
-    },
-    {
-      "code": "grandes grupos de edad cumplida",
-      "selection": {
-        "filter": "item",
-        "values": ["10"]
-      }
-    },
-    {
-      "code": "sexo",
-      "selection": {
-        "filter": "item",
-        "values": ["10"]
-      }
-    },
-    {
-      "code": "periodo",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "20010101", "20020101", "20030101", "20040101",
-          "20050101", "20060101", "20070101", "20080101",
-          "20090101", "20100101", "20110101", "20120101",
-          "20130101", "20140101", "20150101", "20160101",
-          "20170101", "20180101", "20190101", "20200101",
-          "20210101", "20220101", "20230101", "20240101"
-        ]
-      }
+    ],
+    "response": {
+      "format": "json-stat"
     }
-  ],
-  "response": {
-    "format": "json-stat"
   }
 }</code></pre>
 
   <h2>3. Gráfico dinámico</h2>
-
   <p>
-    Hemos generado un gráfico dinámico simple con JavaScript y Highcharts. Los datos se obtienen dinámicamente a través de
-    una consulta a la API de Eustat, en formato JSON.
+    Hemos generado un gráfico dinámico simple con <em>JavaScript</em> y Highcharts. Los datos se obtienen directamente mediante una consulta <em>POST</em> 
+    a la API de Eustat en formato <em>JSON</em> y se pueden mantener actualizados en todo momento.
   </p>
 
   <div id="container" style="width: 100%; height: 500px;"></div>
@@ -150,7 +158,6 @@
 
   <script>
     const url = "https://www.eustat.eus/bankupx/api/v1/es/DB/PX_010154_cepv1_ep06b.px";
-
     const query = {
       "query": [
         {
@@ -206,17 +213,13 @@
         "20": "Gipuzkoa"
       };
 
-      const series = Object.keys(territorios).map(cod => {
-        return {
-          name: territorios[cod],
-          data: ds.Data({ "ámbitos territoriales": cod }, false)
-        };
-      });
+      const series = Object.keys(territorios).map(cod => ({
+        name: territorios[cod],
+        data: ds.Data({ "ámbitos territoriales": cod }, false)
+      }));
 
       Highcharts.chart('container', {
-        chart: {
-          type: 'line'
-        },
+        chart: { type: 'line' },
         title: {
           text: 'Evolución de la población de la C.A. de Euskadi y sus territorios históricos (1 de enero, 2001–2024)'
         },
