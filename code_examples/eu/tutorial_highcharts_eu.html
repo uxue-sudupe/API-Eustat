@@ -96,13 +96,13 @@
 
   <h2>2. Eustaten APIari kontsulta</h2>
   <p>
-    Grafikoa sortzeko beharrezkoa den <em>JSON</em> kontsulta, Eustateko Datu Bankuko taula bateko aldagaiak eta balioak hautatzeko interfazearekin sortu da:
+    Grafikoa sortzeko beharrezkoa den <em>JSON</em> kontsulta, Eustateko Datu Bankuko taulek duten hautaketa-interfazearekin sortu da:
     <a href="https://www.eustat.eus/bankupx/pxweb/eu/DB/-/PX_010154_cepv1_ep06b.px" target="_blank">https://www.eustat.eus/bankupx/pxweb/eu/DB/-/PX_010154_cepv1_ep06b.px</a>.
   </p>
   <p>
     Interfaze horrek aukera ematen digu interesatzen zaizkigun datuak erraz hautatzeko eta kontsultaren kodea <em>JSON</em> formatuan lortzeko.
     Gure aukera hau izan da: Euskal Autonomia Erkidegoko, Arabako, Bizkaiko eta Gipuzkoako biztanleria osoa, 2001-2024 urteetarako, urtarrilaren 1ean.
-    <em>Endpoint</em> honi egindako <em>POST</em> eskaera honek JSON formatua eskatzen du.
+    <em>endpoint</em> honi egindako <em>POST</em> eskaera honek JSON formatua eskatzen du. Kode hau sartuko dugu kodean, <em>script type="text/javascript</em> lerroaren ondoren.
   </p>
 
   <pre><code>{
@@ -207,7 +207,7 @@
       const etiquetas = tiempo.id.map(id => tiempo.Category(id).label);
 
       const territorios = {
-        "00001": "Euskadi",
+        "00001": "Euskal AE",
         "01": "Araba/Álava",
         "48": "Bizkaia",
         "20": "Gipuzkoa"
