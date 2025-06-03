@@ -145,10 +145,12 @@
 }</code></pre>
 
   <h2>3. Gráfico dinámico</h2>
-  <p>
-    Hemos generado un gráfico dinámico simple con <em>JavaScript</em> y Highcharts. Los datos se obtienen directamente mediante una consulta <em>POST</em> 
-    a la API de Eustat en formato <em>JSON</em> y se pueden mantener actualizados en todo momento.
-  </p>
+   <p>
+     A continuación, deberemos especificar el título del gráfico, el nombre de los ejes y las unidades. El formato del código necesario puede verse en la siguiente página: 
+     <a href="https://www.highcharts.com/demo/highcharts/line-chart" target="_blank">https://www.highcharts.com/demo/highcharts/line-chart</a> 
+     (haz clic en el botón <strong>Code</strong>). Utilizando <em>JavaScript</em> y Highcharts, hemos creado un gráfico dinámico simple. 
+     Los datos pueden actualizarse en todo momento gracias a la consulta <em>JSON</em> realizada mediante <em>POST</em> a la API de Eustat.
+   </p>
 
   <div id="container" style="width: 100%; height: 500px;"></div>
 
@@ -207,7 +209,7 @@
       const etiquetas = tiempo.id.map(id => tiempo.Category(id).label);
 
       const territorios = {
-        "00001": "Euskadi",
+        "00001": "C.A. de Euskadi",
         "01": "Araba/Álava",
         "48": "Bizkaia",
         "20": "Gipuzkoa"
