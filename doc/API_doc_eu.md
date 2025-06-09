@@ -7,17 +7,17 @@ API honek datu estatistiko eguneratuak programazio bidez eskuratzeko aukera emat
  - datuak beti eguneratuta bistaratzea, adibidez web orri batean taula edo grafiko moduan
  - datuak zuzenean R, Python edo Jupyter Notebooks bezalako tresnetara inportatzea, ondoren tratatzeko eta aztertzeko
 
-APIek (Aplikazioen Programazio Interfazeek) sistema desberdinen arteko komunikazioa ahalbidetzen dute. APIra egindako eskaera batek hiru osagai nagusi izaten ditu:
+APIek (Aplikazioen Programazio Interfazeek) sistema desberdinen arteko komunikazioa ahalbidetzen dute. APIra egindako eskaera batek hiru elementu nagusi izaten ditu:
 
  - web helbide nagusia (endpoint)
  - deia egiteko funtzio bat, HTTP metodo baten bidez (`GET`, `POST`, etab.)
  - datuak filtratzeko, ordenatzeko edo pertsonalizatzeko aukera ematen duten parametro multzoa
 
-Eustaten APIaren URL helbideen (endpoint) oinarrizko egitura honako hau da:
+Eustaten APIaren URL helbideen (endpointen) oinarrizko egitura honako hau da:
 
 ![Eustaten APIaren URL egitura](/img/url_api_eustat_eu.png)
 
-URLaren segmentu bakoitzak funtzio espezifiko bat du:
+URLaren segmentu bakoitzak funtzio bat du:
 
 - <span style="color:blue">🔵 `www.eustat.eus/bankupx/api`: Zerbitzuaren helbidearen zati finkoa. 
 - <span style="color:purple">🟣 `v1`: APIaren bertsioa (balio finkoa). 
@@ -29,7 +29,7 @@ Jarraian, APIko sarrerako puntuetara deitzeko modua zehazten da, baita datuak ko
 
 # 2. Datu-bankuko taulen zerrenda
 
- Datu-bankuaren url-ra deitzen baduzu `GET` funtzioarekin, taula guztien zerrenda agertuko zaizu JSON formatuan. Datu-bankuaren URL helbideak egitura hau du:
+ Datu-bankuaren url-ra deitzen baduzu `GET` funtzioarekin, taula guztien zerrenda agertuko zaizu JSON formatuan. Datu bankuaren URL helbideak egitura hau du:
 
 `https://www.eustat.eus/bankupx/api/v1/{hizkuntza}/DB`
 
@@ -196,9 +196,9 @@ Erantzunaren itxura:
 
 # 4. Taula bateko datuak
 
-Taula bateko datuak lortzeko, kontsulta bat egin behar diozu JSON formatuan interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan `POST` funtzioa erabiltzen da.
+Taula bateko datuak lortzeko, kontsulta bat egin behar diozu (JSON formatuan) interesatzen zaizun taularen URLari. Metadatuak lortzeko erabiltzen den sarbide-puntu bera da, baina oraingoan `POST` funtzioa erabiltzen da.
 
-Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Honako filtro hauek erabiltzen dira:
+Kontsulta guztiak honako testu honekin hasten dira:  `{query: [{...}]}`. Filtro hauek erabiltzen dira:
 
 | Filtroa | Deskribapena                                                                |
 |--------|------------------------------------------------------------------------------|
@@ -251,33 +251,34 @@ Kontsulta hau egin ahal izateko, taulak zer aldagai eta balio dituen jakin behar
 
 Adibidez: 👉 https://www.eustat.eus/bankupx/pxweb/eu/DB/-/PX_170112_cpib_pib_a_01.px
 
-Taula guztiak helbide honetan kontsulta daitezke  👉 https://www.eustat.eus/bankupx/pxweb/eu/DB/-/
+Taula guztien zerrenda helbide honetan kontsulta daiteke  👉 https://www.eustat.eus/bankupx/pxweb/eu/DB/-/
 
-Jarraian, hautaketa-laguntzailea erabiliz POST kontsulta konfiguratzeko eman behar diren urratsak azalduko ditugu:
+Jarraian, hautaketa-laguntzailea erabiliz POST kontsulta bat egiteko urratsak azalduko ditugu:
 
 
 ### Nola hautatu aldagaiak eta balioak
 
 Balio konkretu batzuk aukeratu nahi ditugu honako taula honetan: "Euskal AEko barne produktu gordina (BPG-eskaintza), lurralde historiko, jarduera-adar (A-38), datu-mota eta neurri-motaren arabera. 1995 - 2023".
+
 Taula helbide honetan dago: https://eu.eustat.eus/bankupx/pxweb/eu/DB/-/PX_170112_cpib_pib_a_01.px
 
 ![Aldagaiak eta balioak aukeratu](../img/BPG_aukeraketa.PNG)
 
-Egin klik **Taula hau aplikazioan edukitzea** atalean. Hor azalduko dira APIaren bidez datuak lortzeko beharrezkoak diren URLa eta kontsulta.
+Egin klik **Taula hau eskuragarri egin zure aplikazioan** atalean. Hor azalduko dira APIaren bidez datuak lortzeko beharrezkoak diren URLa eta kontsulta.
 
 ![JSON kontsulta](../img/BPG_kontsulta.PNG)
 
 Interfazeak APIan erabiliko den kodea sortzen eta editatzen laguntzen dio erabiltzaileari. Kontsulten kodea sortzeko pentsatuta dago, eta ez produkzioan erabiltzeko.
 
-Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutoretzak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/eu/tutorial_R_eu.Rmd), [**Pythonen**](../code_examples/eu/tutorial_Python_eu.ipynb) eta [**Javascript-en**](https://uxue-sudupe.github.io/API-Eustat/code_examples/eu/tutorial_highcharts_eu.html) 
+Irteerako JSON fitxategiak irakurtzeko, formatu hori prozesatu dezakeen programa edo lengoaia bat erabili behar da. Tutorialak eta kode-adibideak sortu dira erabiltzaileei Eustaten APIaren erabilera errazteko [**R lengoaian**](../code_examples/eu/tutorial_R_eu.Rmd), [**Pythonen**](../code_examples/eu/tutorial_Python_eu.ipynb) eta [**Javascript-en**](https://uxue-sudupe.github.io/API-Eustat/code_examples/eu/tutorial_highcharts_eu.html) 
 
 
 ### Irteera-formatuak
 
 APIak 5 formatutan itzul ditzake tauletako datuak:
 
-- **JSON-stat**, 1.2 bertsioa *(formatu lehenetsia))*
-- **CSV** (testu lauean)
+- **JSON-stat**, 1.2 bertsioa (formatu lehenetsia)
+- **CSV** (testu laua)
 - **CSV2** (formatu egokiena taula dinamikoekin lan egiteko)
 - **CSV3** (CSV2 bezala, baina kodeekin testuaren ordez)
 - **XLSX** (Excel)
