@@ -7,11 +7,11 @@ output: html_document
 
 El [banco de datos de Eustat](https://www.eustat.eus/banku/indexArbol.html) contiene una gran cantidad de datos sobre la sociedad, la economía y la población de la Comunidad Autónoma de Euskadi.
 
-Los datos son públicos y accesibles por distintos medios, entre ellos la API, documentada aquí. La API facilita enormemente el acceso y la reutilización de los datos. Sin embargo, a menos que se tenga experiencia previa en el acceso a API, su uso puede resultar complejo para un investigador, analista o estudiante.
+Los datos son públicos y accesibles por distintos medios, entre ellos la API, [documentada aquí](https://github.com/uxue-sudupe/API-Eustat/blob/main/README.md). La API facilita enormemente el acceso y la reutilización de los datos. Sin embargo, a menos que se tenga experiencia previa en el acceso a API, su uso puede resultar complejo para un investigador, analista o estudiante.
 
 Este tutorial ofrece una guía rápida sobre cómo acceder a los datos de Eustat a través de su API y descargar su contenido en formato JSON (JavaScript Object Notation) u otro formato permitido. Se muestran ejemplos de cómo descargar los datos y su posterior procesado para obtener datasets que pueden ser tratados con R.
 
-Es necesario utilizar algunos paquetes muy extendidos como dplyr o httr, y el paquete rjstat, específico para tratar con Python datos en formato json-stat.
+Es necesario utilizar algunos paquetes muy extendidos como `dplyr` o `httr`, y el paquete `rjstat`, específico para tratar con R datos en formato json-stat.
 
 ```{r setup, message=FALSE, warning=FALSE}
 
@@ -30,7 +30,11 @@ Es posible acceder al listado completo de los conjuntos de datos publicados por 
 
 Las tablas son las que se encuentran en el banco de datos de Eustat: <https://www.eustat.eus/banku/indexArbol.html>
 
-Una llamada a la API se compone de una dirección web principal, una llamada a una función y un conjunto de parámetros. La dirección web principal del banco de datos es [https://www.eustat.eus/bankupx/api/v1/[lang]/DB](https://www.eustat.eus/bankupx/api/v1/%5Blang%5D/DB){.uri}. En este caso, la llamada a la API se hace con la función GET. El único parámetro necesario para obtener el catálogo, es el idioma (lang). La respuesta se recibe en formato JSON.
+Una llamada a la API se compone de una dirección web principal, una llamada a una función y un conjunto de parámetros. La dirección web principal del banco de datos es
+
+`https://www.eustat.eus/bankupx/api/v1/[lang]/DB`
+
+En este caso, la llamada a la API se hace con la función `GET`. El único parámetro necesario para obtener el catálogo, es el idioma `(lang)`. La respuesta se recibe en formato JSON.
 
 ```{r}
 
@@ -58,7 +62,7 @@ head(Katalogoa)
 
 Los metadatos de una tabla contienen información sobre el título de la tabla, cuáles son las dimensiones/variables de desagregación que aparecen en la tabla y los valores que toman. Los metadatos se guardan como código o como texto descriptivo.
 
-Para acceder a los metadatos de una tabla concreta, debemos añadirle a la url del banco de datos el código identificador "id" de la tabla de interés. La dirección tendrá este aspecto: www.eustat.eus/bankupx/api/v1/[lang]/DB/[id]
+Para acceder a los metadatos de una tabla concreta, debemos añadirle a la url del banco de datos el código identificador "id" de la tabla de interés. La dirección tendrá este aspecto: `www.eustat.eus/bankupx/api/v1/[lang]/DB/[id]`
 
 Accedemos, por ejemplo, a los metadatos de la tabla que contiene los datos de "Población estimada de la C.A. de Euskadi por territorio histórico, sexo y año de nacimiento", que se encuentra en esta dirección:
 
@@ -155,11 +159,11 @@ head(Paro)
 
 **Modificaciones a la consulta**
 
-Cuando se realiza "filter": "item" sobre una variable, se seleccionan los valores que se quieren filtrar (uno o varios).
+Cuando se realiza `"filter": "item"` sobre una variable, se seleccionan los valores que se quieren filtrar (uno o varios).
 
-Si se seleccionan todos los valores, no se está filtrando sobre esa variable, y no aparecerá en la consulta. Tiene el mismo efecto que eliminar la linea que empieza por {"code":"variable"....} como haremos ahora con la línea de código de la variable "territorio histórico".
+Si se seleccionan todos los valores, no se está filtrando sobre esa variable, y no aparecerá en la consulta. Tiene el mismo efecto que eliminar la linea que empieza por `{"code":"variable"....}` como haremos ahora con la línea de código de la variable "territorio histórico".
 
-También podemos usar el filtro "top", para seleccionar unicamente un número determinado con los últimos valores de la variable. Este filtro "top" se utiliza principalmente con la variable "periodo", "año" o similares.
+También podemos usar el filtro `"top"`, para seleccionar unicamente un número determinado con los últimos valores de la variable. Este filtro `"top"` se utiliza principalmente con la variable "periodo", "año" o similares.
 
 ```{r}
 
