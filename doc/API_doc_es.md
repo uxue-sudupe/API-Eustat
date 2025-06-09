@@ -6,7 +6,7 @@ Esta API permite acceder a datos estadísticos actualizados por programación co
  - visualizar los datos siempre actualizados en forma de tablas o gráficos integrados en páginas web
  - importar los datos directamente a herramientas como R, Python o Jupyter Notebooks, para su tratamiento y análisis posterior
 
-Las API (Interfaces de Programación de Aplicaciones) permiten la comunicación entre los diferentes sistemas. Una solicitud al PAI tiene tres componentes principales:
+Las API (Interfaces de Programación de Aplicaciones) permiten la comunicación entre los diferentes sistemas. Una solicitud a la API tiene tres componentes principales:
 
  - dirección web principal (endpoint)
  - una función de llamada mediante un método HTTP (`GET`, `POST`, etc.)
@@ -261,7 +261,9 @@ A continuación, se muestran los pasos necesarios para configurar la consulta `P
 
 ### Ejemplo de selección de variables y valores
 
-Queremos seleccionar algunos valores concretos de la tabla "Producto interior bruto (PIB) de la C.A. de Euskadi (oferta) por territorio histórico, rama de actividad (A-38), tipo de dato y de medida. 1995 - 2023" que se encuentra en la dirección https://es.eustat.eus/bankupx/pxweb/es/DB/-/PX_170112_cpib_pib_a_01.px.
+Queremos seleccionar algunos valores concretos de la tabla "Producto interior bruto (PIB) de la C.A. de Euskadi (oferta) por territorio histórico, rama de actividad (A-38), tipo de dato y de medida. 1995 - 2023" que se encuentra en esta dirección:
+
+https://es.eustat.eus/bankupx/pxweb/es/DB/-/PX_170112_cpib_pib_a_01.px
 
 ![Selección de variables y valores](../img/PIB_seleccion.PNG)
 
@@ -277,7 +279,7 @@ Para leer los archivos JSON de salida de las solicitudes de datos descritas en e
 
 La API puede devolver los datos de las tablas en 5 formatos diferentes:
 
-- **JSON-stat**, versión 1.2 *(formato predeterminado)*
+- **JSON-stat**, versión 1.2 (formato predeterminado)
 - **CSV** (texto plano)
 - **CSV2** (formato compatible con tablas dinámicas)
 - **CSV3** (igual que CSV2, pero con códigos en lugar de texto)
