@@ -11,7 +11,7 @@ Datuak publikoak dira eta modu desberdinetan eskura daitezke, besteak beste,  [h
 
 Tutorial honek gida azkar bat eskaintzen du Eustaten datuak APIaren bidez eskuratzeko. Datuak nola deskargatu, prozesatu eta Dataframe formatuko taulak nola sortu erakusten du.
 
-Oso zabalduta dauden liburutegi batzuk erabili behar dira, dplyr edo httr adibidez, eta rjstat liburutegia, json-stat formatuan dauden datuak R-rekin tratatzeko espezifikoa dena.
+Oso zabalduta dauden liburutegi batzuk erabili behar dira, `dplyr` edo `httr` adibidez, eta `rjstat` liburutegia, json-stat formatuan dauden datuak R-rekin tratatzeko espezifikoa dena.
 
 ```{r setup, message=FALSE, warning=FALSE}
 
