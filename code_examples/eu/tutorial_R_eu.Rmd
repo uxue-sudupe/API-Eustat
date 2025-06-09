@@ -7,11 +7,11 @@ output: html_document
 
 [Eustaten datu bankuak](https://eu.eustat.eus/banku/indexArbol.html) Euskal Autonomia Erkidegoko gizarteari, ekonomiari eta biztanleriari buruzko datu ugari ditu.
 
-Datuak publikoak dira eta modu desberdinetan eskura daitezke, besteak beste, hemen dokumentatutako APIaren bidez. APIak izugarri errazten du datuak eskuratzea eta berrerabiltzea. Hala ere, APIekin aurretik esperientziarik izan ezean, zaila izan daiteke ikertzaile, analista edo ikasle batentzat hura erabiltzea.
+Datuak publikoak dira eta modu desberdinetan eskura daitezke, besteak beste,  [hemen dokumentatutako](https://github.com/uxue-sudupe/API-Eustat/blob/main/README.md) APIaren bidez. APIak izugarri errazten du datuak eskuratzea eta berrerabiltzea. Hala ere, APIekin aurretik esperientziarik izan ezean, zaila izan daiteke ikertzaile, analista edo ikasle batentzat hura erabiltzea.
 
 Tutorial honek gida azkar bat eskaintzen du Eustaten datuak APIaren bidez eskuratzeko. Datuak nola deskargatu, prozesatu eta Dataframe formatuko taulak nola sortu erakusten du.
 
-Oso zabalduta dauden pakete batzuk erabili behar dira, pandas edo requests adibidez, eta pyjstat paketea, Pythonekin datuak json-stat formatuan tratatzeko espezifikoa dena.
+Oso zabalduta dauden liburutegi batzuk erabili behar dira, dplyr edo httr adibidez, eta rjstat liburutegia, json-stat formatuan dauden datuak R-rekin tratatzeko espezifikoa dena.
 
 ```{r setup, message=FALSE, warning=FALSE}
 
@@ -30,11 +30,11 @@ Posible da Eustatek argitaratutako datu multzoen (taulen) zerrenda osoa ikustea 
 
 Eustaten datu bankuan dauden taulek osatzen dute katalogoa: <https://eu.eustat.eus/banku/id_All/indexArbol.html>
 
-APIari egiten zaion eskaera batek hiru osagai nagusi izaten ditu: web helbide nagusia, funtziorako dei bat eta parametro multzo bat. Eustaten Datu Bankuko APIaren helbide nagusia honakoa da:
+APIari egiten zaion eskaera batek hiru elementu nagusi izaten ditu: web helbide nagusia, funtziorako dei bat eta parametro multzo bat. Eustaten Datu Bankuko APIaren helbide nagusia honakoa da:
 
 `https://www.eustat.eus/bankupx/api/v1/[lang]/DB`
 
-Kasu honetan, APIari deia GET metodoaren bidez egiten zaio. Katalogoa lortzeko behar den parametro bakarra hizkuntza da (lang). Erantzuna JSON formatuan jasotzen da.
+Kasu honetan, APIari deia `GET` metodoaren bidez egiten zaio. Katalogoa lortzeko behar den parametro bakarra hizkuntza da `(lang)`. Erantzuna JSON formatuan jasotzen da.
 
 ```{r}
 
@@ -50,7 +50,7 @@ head(Katalogoa)
 
 Zerrenda bera gaztelaniaz edo ingelesez ere eska daiteke. Horretarako, URLko hizkuntza parametroa aldatzea besterik ez da behar: `www.eustat.eus/bankupx/api/v1/[lang]/DB`
 
-[lang] parametroa honako hiru aukeretako batekin ordezka daiteke: *eu* (euskera), *es* (gaztelania) edo *en* (ingelesa).
+`[lang]` parametroa honako hiru aukeretako batekin ordezka daiteke: *eu* (euskera), *es* (gaztelania) edo *en* (ingelesa).
 
 Adibidez, gaztelaniazko katalogoa eskuratzeko URL hau erabiliko litzateke:
 
@@ -66,7 +66,7 @@ head(Catálogo)
 
 Taula bateko metadatuek taularen izenburuari buruzko informazioa, taulan agertzen diren desagregazio-dimentsioak/aldagaiak eta hartzen dituzten balioei buruzko informazioa jasotzen dute. Metadatuetan kodeak eta testu deskribatzaileak datoz.
 
-Taula jakin bateko metadatuetara sartzeko, interesatzen zaigun taularen "id" identifikazio kodea gehitu behar diogu datu bankuko url-ari. Helbideak egitura hau izango du:
+Taula jakin bateko metadatuetara sartzeko, interesatzen zaigun taularen `"id"` identifikazio kodea gehitu behar diogu datu bankuko url-ari. Helbideak egitura hau izango du:
 
 `www.eustat.eus/bankupx/api/v1/[lang]/DB/[id]`
 
@@ -147,7 +147,7 @@ Eta interesatzen zaigun hautaketa egingo dugu: Euskal AEko langabezia-tasaren da
 
 ![](https://raw.githubusercontent.com/uxue-sudupe/API-Eustat/main/img/Langabezia_aukeraketa.png){width="600"}
 
-Aukeraketa egin ondoren, "Jarraitu" eta "Taula hau eskuragarri egin zure aplikazioan" sakatuko dugu. Atal honetan, eskaera egin behar zaion URLa eta json kontsulta agertuko dira. Kontsulta hori gure kodean sartuko dugu.
+Aukeraketa egin ondoren, `"Jarraitu"` eta `"Taula hau eskuragarri egin zure aplikazioan"` sakatuko dugu. Atal honetan, eskaera egin behar zaion URLa eta json kontsulta agertuko dira. Kontsulta hori gure kodean sartuko dugu.
 
 ***Kontsultaren adibidea***
 
@@ -169,11 +169,11 @@ head(Langabezia)
 
 **Aldaketak kontsultan**
 
-Filter: item egiten denean aldagai baten gainean, filtratu nahi diren balioak hautatzen dira (bat edo gehiago).
+`Filter: item` egiten denean aldagai baten gainean, filtratu nahi diren balioak hautatzen dira (bat edo gehiago).
 
-Balio guztiak hautatzen badira, ez da aldagai horren gainean filtratzen, eta ez da kontsultan agertuko. Efektu bera du "lurralde historikoa" aldagaiaren kode-lerroarekin orain egingo dugun bezala {"code":"variable"....} kodearekin hasten den lerroa ezabatzeak ere.
+Balio guztiak hautatzen badira, ez da aldagai horren gainean filtratzen, eta ez da kontsultan agertuko. Efektu bera du "lurralde historikoa" aldagaiaren kode-lerroarekin orain egingo dugun bezala `{"code":"variable"....}` kodearekin hasten den lerroa ezabatzeak ere.
 
-Top filtroa ere erabil dezakegu, aldagaiaren azken balioak bakarrik hautatzeko. Top filtroa batez ere "aldia", "urtea" edo antzeko aldagaiekin erabiltzen da.
+`Top` filtroa ere erabil dezakegu, aldagaiaren azken balioak bakarrik hautatzeko. Top filtroa batez ere "aldia", "urtea" edo antzeko aldagaiekin erabiltzen da.
 
 ```{r}
 
