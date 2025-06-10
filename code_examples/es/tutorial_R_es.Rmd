@@ -48,7 +48,7 @@ head(Catálogo)
 
 **Idiomas**
 
-Se pueden obtener los mismos datos en euskera o en inglés. Solo hay que modificar la dirección de la *url* en la parte que contiene el idioma, `www.eustat.eus/bankupx/api/v1/[idioma]/DB`, y reemplazar *es* por *eu* o *en*. Por ejemplo, en euskera sería así:
+Se pueden obtener los mismos datos en euskera o en inglés. Solo hay que modificar la dirección de la URL en la parte que contiene el idioma, `www.eustat.eus/bankupx/api/v1/[idioma]/DB`, y reemplazar *es* por *eu* o *en*. Por ejemplo, en euskera sería así:
 
 ```{r}
 
