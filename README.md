@@ -12,7 +12,7 @@ APIaren sarrera puntu guztiak (endpoint-ak) eta parametro desberdinak probatu da
 ### 3. Erabilera adibideak
 Eustaten APIa nola erabili erakusteko, hiru tutorial praktiko prestatu ditugu.**R**, **Python** eta **JavaScript** erabiliz, APIari kontsultak nola egin eta datuak nola prozesatu erakusten dute, adibideen bitartez.
 
-1. 📘 [R tutoriala](/code_examples/eu/tutorial_R_eu.Rmd) RMarkdown formatuan, Rstudio-n ikusteko, edo Jupyter Notebook formatuan Google Colab-en ikusteko (irudian egin klik, [![Ireki Colab-en](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/uxue-sudupe/API-Eustat/blob/main/code_examples/eu/tutorial_R_eu.ipynb) , Google-ko kontu bat beharko duzu)
+1. 📘 [R tutoriala](/code_examples/eu/tutorial_R_eu.Rmd) RMarkdown formatuan, Rstudio-n ikusteko. Jupyter Notebook formatuan ere ikusi daiteke. Hortarako, irudi honetan egin klik [![Ireki Colab-en](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/uxue-sudupe/API-Eustat/blob/main/code_examples/eu/tutorial_R_eu.ipynb) (Google-ko kontu bat beharko duzu)
    
 2. 📙 [Python tutoriala](/code_examples/eu/tutorial_Python_eu.ipynb)  Jupyter Notebook formatuan dago. Ireki Google Colab-en, irudi honetan klik eginez [![Ireki Colab-en](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/uxue-sudupe/API-Eustat/blob/main/code_examples/eu/tutorial_Python_eu.ipynb) (Google-ko kontu bat beharko duzu)
    
