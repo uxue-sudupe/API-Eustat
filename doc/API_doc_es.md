@@ -29,7 +29,7 @@ A continuación se detalla la forma de llamar a los puntos de acceso (endpoints)
 
 # 2. Listado de tablas del banco de datos
 
-Si usas la función `GET` sobre la url del banco de datos, se muestra el listado de todas las tablas en formato JSON. La dirección url del banco de datos tiene la siguiente estructura: 
+Si usas la función `GET` sobre la URL del banco de datos, se muestra el listado de todas las tablas en formato JSON. La dirección URL del banco de datos tiene la siguiente estructura: 
 
 `https://www.eustat.eus/bankupx/api/v1/{idioma}/DB`
 
@@ -200,7 +200,7 @@ Aspecto de la respuesta:
 
 # 4. Datos de una tabla
 
-Para obtener los datos de una tabla, debes formular una consulta en formato JSON a la url de la tabla de interés. Es el mismo punto de acceso que se utiliza para obtener los metadatos, pero esta vez se utiliza la función `POST`.
+Para obtener los datos de una tabla, debes formular una consulta en formato JSON a la URL de la tabla de interés. Es el mismo punto de acceso que se utiliza para obtener los metadatos, pero esta vez se utiliza la función `POST`.
 
 Todas las consultas comienzan con el objeto: `{query: [{...}]}`. Los filtros que se utilizan son estos:
 
