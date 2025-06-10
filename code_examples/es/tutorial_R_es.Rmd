@@ -38,8 +38,6 @@ En este caso, la llamada a la API se hace con la función `GET`. El único pará
 
 ```{r}
 
-# URL del punto de acceso (endpoint) del catálogo de datos de Eustat
-
 DB <- GET("https://www.eustat.eus/bankupx/api/v1/es/DB")
 Catálogo <- fromJSON(rawToChar(DB$content))
 head(Catálogo)
