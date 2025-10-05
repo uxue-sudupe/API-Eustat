@@ -14,7 +14,7 @@ Las API (Interfaces de Programación de Aplicaciones) permiten la comunicación 
 
 La estructura básica de las direcciones URL (endpoint) de la API de Eustat es la siguiente:
 
-![Estructura de la URL de la API de Eustat](/img/url_api_eustat_es.png)
+![Estructura de la URL de la API de Eustat](../img/url_api_eustat_es.png)
 
 Cada segmento de la URL tiene una función específica:
 
