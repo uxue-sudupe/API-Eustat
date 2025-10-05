@@ -15,7 +15,7 @@ APIek (Aplikazioen Programazio Interfazeek) sistema desberdinen arteko komunikaz
 
 Eustaten APIaren URL helbideen (endpointen) oinarrizko egitura honako hau da:
 
-![Eustaten APIaren URL egitura](/img/url_api_eustat_eu.png)
+![Eustaten APIaren URL egitura](../img/url_api_eustat_eu.png)
 
 URLaren segmentu bakoitzak funtzio bat du:
 
